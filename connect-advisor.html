@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '915098220958914');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=915098220958914&ev=PageView&noscript=1"
+/>
+</noscript>
+<!-- End Meta Pixel Code -->
+
+  <meta charset="UTF-8">
+  <link rel="icon" href="https://www.erickson.co.in/wp-content/uploads/2025/12/favicon.png" sizes="96x96" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect with an Advisor - Erickson Coaching International India</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="global.css" rel="stylesheet">
+  <link href="connect-advisor.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Connect with an Advisor Section -->
+  <section class="advisor-section">
+    <div class="advisor-container">
+      <div class="advisor-header" data-aos="fade-up" data-aos-duration="800">
+        <h2 class="advisor-title">CONNECT WITH AN ADVISOR</h2>
+        <p class="advisor-subtitle">
+          Our experienced advisors are here to guide you through your coaching journey. 
+          Connect with them to learn more about our programs and how Erickson Coaching 
+          International can help you achieve your goals.
+        </p>
+      </div>
+      
+      <div id="advisor-grid" class="advisor-grid">
+        <!-- Team member cards will be dynamically generated here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- AOS Animation Library Initialization -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({
+        once: true,
+        duration: 800,
+        easing: 'ease-in-out'
+      });
+    });
+  </script>
+  
+  <!-- Advisor Script -->
+  <script src="connect-advisor.js" type="module"></script>
+</body>
+</html>

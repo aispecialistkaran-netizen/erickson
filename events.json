@@ -1,0 +1,688 @@
+[
+  {
+    "id": 1,
+    "title": "ACC Pathway: Your Guide to Exam Success",
+    "description": "Comprehensive guidance to help you succeed in your ACC certification exam with proven strategies and insights.",
+    "presenter": "Gaurav Arora",
+    "date": "2025-10-09",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "completed",
+    "statusLabel": "Completed",
+    "pricing": {
+      "type": "completed",
+      "label": "Status",
+      "value": "Completed"
+    },
+    "tags": [
+      "ACC Pathway",
+      "Exam Prep"
+    ],
+    "registrationLink": null,
+    "virtual": true,
+    "featured": false,
+    "free": false,
+    "image": "./Gaurav Arora 4.jpg"
+  },
+  {
+    "id": 2,
+    "title": "ACC Pathway: Your Guide to Exam Success",
+    "description": "Comprehensive guidance to help you succeed in your ACC certification exam with proven strategies and insights.",
+    "presenter": "Gaurav Arora",
+    "date": "2025-10-16",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "completed",
+    "statusLabel": "Completed",
+    "pricing": {
+      "type": "completed",
+      "label": "Status",
+      "value": "Completed"
+    },
+    "tags": [
+      "ACC Pathway",
+      "Exam Prep"
+    ],
+    "registrationLink": null,
+    "virtual": true,
+    "featured": false,
+    "free": false,
+    "image": "./Gaurav Arora 4.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Experience Coaching- Experience Clarity",
+    "description": "Join Gaurav Arora for an immersive coaching experience that will bring clarity to your practice and purpose.",
+    "presenter": "Gaurav Arora, MCC",
+    "date": "2025-10-29",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "completed",
+    "statusLabel": "Completed",
+    "pricing": {
+      "type": "completed",
+      "label": "Status",
+      "value": "Completed"
+    },
+    "tags": [
+      "Experience Coaching",
+      "Clarity"
+    ],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_im17Cx08RdC-NVtJSYFwhg",
+    "virtual": true,
+    "featured": false,
+    "free": true,
+    "image": "./Gaurav Arora 4.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Coaching at the Heart of Building Human Centered Organisations",
+    "description": "Explore how coaching can drive the development of human-centered organizations and foster meaningful workplace cultures.",
+    "presenter": "Anupam Arun",
+    "date": "2025-11-04",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "upcoming",
+    "statusLabel": "Upcoming",
+    "pricing": {
+      "type": "free",
+      "label": "Registration",
+      "value": "Free"
+    },
+    "tags": [
+      "Coaching",
+      "Human Centered",
+      "Organizations"
+    ],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_rW8fPxGVREW5pbTeWENDqA",
+    "virtual": true,
+    "featured": true,
+    "free": true,
+    "image": "./Anupam Arun.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Building Block of the Coaching Mindset",
+    "description": "Discover the fundamental building blocks that form a strong coaching mindset essential for effective coaching practices.",
+    "presenter": "Gaurav Arora, MCC",
+    "date": "2025-11-12",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "upcoming",
+    "statusLabel": "Upcoming",
+    "pricing": {
+      "type": "free",
+      "label": "Registration",
+      "value": "Free"
+    },
+    "tags": [
+      "Coaching Mindset",
+      "Building Blocks"
+    ],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_ilhqBolLRJiwDkefna0zRg",
+    "virtual": true,
+    "featured": false,
+    "free": true,
+    "image": "./Gaurav Arora 4.jpg"
+  },
+  {
+    "id": 9,
+    "title": "India Coaching Forward- Awakening a Nation of Conscious Coaches",
+    "description": "A transformative session focused on awakening conscious coaching practices across India and building a community of mindful coaches.",
+    "presenter": "Emmanuel D, ACC",
+    "date": "2025-11-26",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "upcoming",
+    "statusLabel": "Upcoming",
+    "pricing": {
+      "type": "free",
+      "label": "Registration",
+      "value": "Free"
+    },
+    "tags": [
+      "India Forward",
+      "Conscious Coaches"
+    ],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_I1Tra6nlQDuXaBqQPqQ1Dw",
+    "virtual": true,
+    "featured": false,
+    "free": true,
+    "image": "./Emmanuel David.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Coaching is no Longer optional for Today's Leaders",
+    "description": "Understand why coaching has become essential for modern leaders and how it shapes effective leadership strategies.",
+    "presenter": "Bhushan Kulkarni, PCC",
+    "date": "2025-12-02",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "upcoming",
+    "statusLabel": "Upcoming",
+    "pricing": {
+      "type": "free",
+      "label": "Registration",
+      "value": "Free"
+    },
+    "tags": [
+      "Coaching",
+      "Leaders",
+      "Essential"
+    ],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_M0pg6hMORLqLcRmp5uzYgQ",
+    "virtual": true,
+    "featured": false,
+    "free": true,
+    "image": "./Bhushan Kulkarni.jpg"
+  },
+  {
+    "id": 11,
+    "title": "The Leadership Advantage",
+    "description": "The Leadership Advantage- How top leaders create ownership, accountability and high performance",
+    "presenter": "Gaurav Arora, MCC",
+    "date": "2025-12-09",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "upcoming",
+    "statusLabel": "Upcoming",
+    "pricing": {
+      "type": "free",
+      "label": "Registration",
+      "value": "Free"
+    },
+    "tags": [
+      "Manager",
+      "Coaches",
+      "Shift"
+    ],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_qsTIj62hT3y9PIMcGpxIXg#/registration",
+    "virtual": true,
+    "featured": false,
+    "free": true,
+    "image": "./Gaurav Arora 4.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Listening at the Global Level",
+    "description": "Develop advanced listening skills that enable effective communication and coaching on a global scale.",
+    "presenter": "Raghavan Veera",
+    "date": "2025-12-16",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "upcoming",
+    "statusLabel": "Upcoming",
+    "pricing": {
+      "type": "free",
+      "label": "Registration",
+      "value": "Free"
+    },
+    "tags": [
+      "Listening",
+      "Global",
+      "Communication"
+    ],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_qSFYPIHqRgGF8Usl0qlAfw",
+    "virtual": true,
+    "featured": false,
+    "free": true,
+    "image": "./Raghavanan-Veera.png"
+  },
+  {
+    "id": 13,
+    "title": "Building Human Centered Leadership through Coaching",
+    "description": "Learn how coaching principles can build human-centered leadership that prioritizes empathy, growth, and inclusivity.",
+    "presenter": "Pankaj K",
+    "date": "2025-12-23",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "upcoming",
+    "statusLabel": "Upcoming",
+    "pricing": {
+      "type": "free",
+      "label": "Registration",
+      "value": "Free"
+    },
+    "tags": [
+      "Human Centered",
+      "Leadership",
+      "Coaching"
+    ],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_NSLSxW0qQMCB4WqcUdddeQ",
+    "virtual": true,
+    "featured": false,
+    "free": true,
+    "image": "./Pankaj-Khanna.png"
+  },
+  {
+    "id": 14,
+    "title": "Performance Reviews to Performance Conversations- The Coaching Way",
+    "description": "Transform traditional performance reviews into meaningful coaching conversations that foster growth and development.",
+    "presenter": "Niharika Nagar",
+    "date": "2026-01-06",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "upcoming",
+    "statusLabel": "Upcoming",
+    "pricing": {
+      "type": "free",
+      "label": "Registration",
+      "value": "Free"
+    },
+    "tags": [
+      "Performance Reviews",
+      "Coaching Conversations",
+      "Growth"
+    ],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_YvG8lPXXSc24sEkqif5Wig",
+    "virtual": true,
+    "featured": false,
+    "free": true,
+    "image": "Niharika-Nagar.png"
+  },
+  {
+    "id": 15,
+    "title": "The Science of Listening",
+    "description": "Dive into the neuroscience and psychology behind effective listening techniques for better coaching outcomes.",
+    "presenter": "Emmanuel D, ACC",
+    "date": "2026-01-14",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "upcoming",
+    "statusLabel": "Upcoming",
+    "pricing": {
+      "type": "free",
+      "label": "Registration",
+      "value": "Free"
+    },
+    "tags": [
+      "Science of Listening",
+      "Neuroscience",
+      "Coaching Techniques"
+    ],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_VI1TVN8DT-yhscaE2ISy1A",
+    "virtual": true,
+    "featured": false,
+    "free": true,
+    "image": "./Emmanuel David.jpg"
+  },
+  {
+    "id": 16,
+    "title": "From Good Manager to Great Coaches- Shift that changes everything",
+    "description": "Explore the transformative shift from management to coaching that can revolutionize leadership and team dynamics.",
+    "presenter": "Soumen D",
+    "date": "2026-01-19",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "upcoming",
+    "statusLabel": "Upcoming",
+    "pricing": {
+      "type": "free",
+      "label": "Registration",
+      "value": "Free"
+    },
+    "tags": [
+      "Manager to Coach",
+      "Leadership Shift",
+      "Team Dynamics"
+    ],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_WtIBE6qhRr6W8wGYGyqI3A",
+    "virtual": true,
+    "featured": false,
+    "free": true,
+    "image": ""
+  },
+  {
+    "id": 17,
+    "title": "Mindset of a Coach",
+    "description": "Cultivate the essential mindset traits that distinguish great coaches and drive successful coaching relationships.",
+    "presenter": "Richa S",
+    "date": "2026-01-28",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "upcoming",
+    "statusLabel": "Upcoming",
+    "pricing": {
+      "type": "free",
+      "label": "Registration",
+      "value": "Free"
+    },
+    "tags": [
+      "Coach Mindset",
+      "Coaching Traits",
+      "Relationships"
+    ],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_nJo8E2SISgG6fuW8q4x7Bw",
+    "virtual": true,
+    "featured": false,
+    "free": true,
+    "image": "Richa Sinha.png"
+  },
+  {
+    "id": 18,
+    "title": "Building Human Centered Leadership through Coaching",
+    "description": "Learn how coaching principles can build human-centered leadership that prioritizes empathy, growth, and inclusivity.",
+    "presenter": "Niharika Nagar",
+    "date": "2026-02-03",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "upcoming",
+    "statusLabel": "Upcoming",
+    "pricing": {
+      "type": "free",
+      "label": "Registration",
+      "value": "Free"
+    },
+    "tags": [
+      "Human Centered Leadership",
+      "Coaching Principles",
+      "Empathy"
+    ],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_PfRL7UHKRxmFzgsxrL6A7Q",
+    "virtual": true,
+    "featured": false,
+    "free": true,
+    "image": "Niharika-Nagar.png"
+  },
+  {
+    "id": 19,
+    "title": "Experience Coaching- Experience Clarity",
+    "description": "Join Gaurav Arora for an immersive coaching experience that will bring clarity to your practice and purpose.",
+    "presenter": "Gaurav Arora, MCC",
+    "date": "2026-02-11",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "upcoming",
+    "statusLabel": "Upcoming",
+    "pricing": {
+      "type": "free",
+      "label": "Registration",
+      "value": "Free"
+    },
+    "tags": [
+      "Experience Coaching",
+      "Clarity",
+      "Purpose"
+    ],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_Z6kaRFKERIygBv5GdmOcNg",
+    "virtual": true,
+    "featured": false,
+    "free": true,
+    "image": "./Gaurav Arora 4.jpg"
+  },
+  {
+    "id": 20,
+    "title": "Coaching as the New Currency",
+    "description": "Discover how coaching skills have become a valuable currency in today's professional landscape for career advancement.",
+    "presenter": "Hariharan S, ACC",
+    "date": "2026-02-15",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "upcoming",
+    "statusLabel": "Upcoming",
+    "pricing": {
+      "type": "free",
+      "label": "Registration",
+      "value": "Free"
+    },
+    "tags": [
+      "Coaching Currency",
+      "Professional Development",
+      "Career Advancement"
+    ],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_Qhp8z1q_RpG_OFwYWt0eTQ",
+    "virtual": true,
+    "featured": false,
+    "free": true,
+    "image": "./Hariharan-Shankar.png"
+  },
+  {
+    "id": 21,
+    "title": "From Good Manager to Great Coaches- Shift that changes everything",
+    "description": "Explore the transformative shift from management to coaching that can revolutionize leadership and team dynamics.",
+    "presenter": "Bhushan Kulkarni, PCC",
+    "date": "2026-02-15",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "upcoming",
+    "statusLabel": "Upcoming",
+    "pricing": {
+      "type": "free",
+      "label": "Registration",
+      "value": "Free"
+    },
+    "tags": [
+      "Manager to Coach",
+      "Leadership Shift",
+      "Team Dynamics"
+    ],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_MGVSSqXoTnGNDcB_daxUVw",
+    "virtual": true,
+    "featured": false,
+    "free": true,
+    "image": "./Bhushan Kulkarni.jpg"
+  },
+  {
+    "id": 22,
+    "title": "Leading in Uncertainty- Why Coaching Skills are a Leader's Superpower",
+    "description": "Learn why coaching skills empower leaders to navigate uncertainty and drive success in dynamic environments.",
+    "presenter": "Pankaj K",
+    "date": "2026-03-03",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "upcoming",
+    "statusLabel": "Upcoming",
+    "pricing": {
+      "type": "free",
+      "label": "Registration",
+      "value": "Free"
+    },
+    "tags": [
+      "Leading Uncertainty",
+      "Coaching Skills",
+      "Leadership"
+    ],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_cG0MXAbLQmeRrsXrFs_6Pw",
+    "virtual": true,
+    "featured": false,
+    "free": true,
+    "image": "./Pankaj-Khanna.png"
+  },
+  {
+    "id": 23,
+    "title": "The Leadership Advantage",
+    "description": ": When Coaching Mindset and Design Thinking Converge",
+    "presenter": "Hariharan S, ACC",
+    "date": "2026-03-17",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "upcoming",
+    "statusLabel": "Upcoming",
+    "pricing": {
+      "type": "free",
+      "label": "Registration",
+      "value": "Free"
+    },
+    "tags": [
+      "Experience Coaching",
+      "Clarity",
+      "Purpose"
+    ],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_ZhuG5nfdQomzSECkQVUQ9A",
+    "virtual": true,
+    "featured": false,
+    "free": true,
+    "image": ""
+  },
+  {
+    "id": 24,
+    "title": "Coaching is no Longer optional for Today's Leaders",
+    "description": "Understand why coaching has become essential for modern leaders and how it shapes effective leadership strategies.",
+    "presenter": "Jitender",
+    "date": "2026-04-07",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "upcoming",
+    "statusLabel": "Upcoming",
+    "pricing": {
+      "type": "free",
+      "label": "Registration",
+      "value": "Free"
+    },
+    "tags": [
+      "Coaching for Leaders",
+      "Essential Skills",
+      "Leadership Strategies"
+    ],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_RfsgZZyYQOeiNaRyDsyzAg",
+    "virtual": true,
+    "featured": false,
+    "free": true,
+    "image": ""
+  },
+  {
+    "id": 25,
+    "title": "Building Human Centered Leadership through Coaching",
+    "description": "Learn how coaching principles can build human-centered leadership that prioritizes empathy, growth, and inclusivity.",
+    "presenter": "Swapnil S",
+    "date": "2026-03-25",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "upcoming",
+    "statusLabel": "Upcoming",
+    "pricing": {
+      "type": "free",
+      "label": "Registration",
+      "value": "Free"
+    },
+    "tags": [
+      "Human Centered Leadership",
+      "Coaching Principles",
+      "Empathy"
+    ],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_hnx8SyWkQPO0RPSdkCrT8Q",
+    "virtual": true,
+    "featured": false,
+    "free": true,
+    "image": "https://xmonks.com/profileimages/Swapnil%20S%20Kumar.jpg"
+  },
+  {
+    "id": 26,
+    "title": "Coach Maturity With David Clutterbuck",
+    "description": "Masterclass - Coach Maturity With David Clutterbuck",
+    "presenter": "David Clutterbuck",
+    "date": "2026-04-28",
+    "time": "7:30 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "upcoming",
+    "statusLabel": "Upcoming",
+    "pricing": {
+      "type": "free",
+      "label": "Registration",
+      "value": "Free"
+    },
+    "tags": [],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_FUK8ZqCSTPmAqfj1wW5UiQ#/registration",
+    "virtual": true,
+    "featured": false,
+    "free": true,
+    "image": "https://ik.imagekit.io/thinkers50/wp-content/uploads/Coaching-Legends-portraits-David-Clutterbuck.jpg"
+  },
+  {
+    "id": 27,
+    "title": "Leader as a Coach in the AI-Driven World",
+    "description": "Join Gaurav Arora for an insightful session on Leader as a Coach in the AI-Driven World.",
+    "presenter": "Gaurav Arora",
+    "date": "2026-07-13",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "upcoming",
+    "statusLabel": "Upcoming",
+    "pricing": {
+      "type": "free",
+      "label": "Registration",
+      "value": "Free"
+    },
+    "tags": [],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_pp9LIjxET5Gp0urQ5dTNWQ#/registration",
+    "virtual": true,
+    "featured": false,
+    "free": true,
+    "image": "./Gaurav Arora 4.jpg"
+  },
+  {
+    "id": 28,
+    "title": "Leader as a Coach in the AI-Driven World",
+    "description": "Join Gaurav Arora for an insightful session on Leader as a Coach in the AI-Driven World.",
+    "presenter": "Gaurav Arora",
+    "date": "2026-07-27",
+    "time": "7:00 PM",
+    "duration": "1 Hour",
+    "type": "Webinar",
+    "category": "webinar",
+    "status": "upcoming",
+    "statusLabel": "Upcoming",
+    "pricing": {
+      "type": "free",
+      "label": "Registration",
+      "value": "Free"
+    },
+    "tags": [],
+    "registrationLink": "https://us02web.zoom.us/webinar/register/WN_J5Q1VsonSrmeUerikzGitA",
+    "virtual": true,
+    "featured": false,
+    "free": true,
+    "image": "./Gaurav Arora 4.jpg",
+    "eventDate": "Jul 27, 2026 7:00 PM",
+    "durationHours": 1,
+    "liveLink": "https://us02web.zoom.us/webinar/register/WN_J5Q1VsonSrmeUerikzGitA"
+  }
+]

@@ -1,0 +1,556 @@
+#erickson-hero-section {
+      background: url('https://www.erickson.edu/hubfs/Website__infogrpahic.png') no-repeat top center/cover;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 5vw;
+    }
+
+.coaching-career-section {
+  background: #f7fafc;
+  padding: 30px 0 60px 0;
+  text-align: center;
+}
+
+.coaching-career-container {
+  /* max-width: 800px; */
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.coaching-career-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1a365d;
+  margin-bottom: 28px;
+  text-align: center;
+  letter-spacing: -1px;
+}
+
+.coaching-career-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.coaching-career-content p {
+    font-size: 1.13rem;
+    color: #2d3748;
+    line-height: 1.7;
+    margin-bottom: 18px;
+    text-align: center;
+    /* max-width: 700px; */
+}
+
+.coaching-career-content p:first-child {
+  font-weight: 600;
+  color: #234e70;
+}
+
+.coaching-career-content p:nth-child(2) {
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.coaching-career-content p:nth-child(3) {
+  font-weight: 400;
+  color: #4a5568;
+}
+
+.coaching-career-content p:last-child {
+  font-weight: 700;
+  color: #1a365d;
+  margin-bottom: 0;
+}
+
+.coaching-career-tabs-section {
+  margin: 48px 0 0 0;
+  padding: 0 0 40px 0;
+}
+
+.coaching-career-tabs-capsule {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e3eafc;
+  border-radius: 999px;
+  padding: 14px 18px;
+  box-shadow: 0 2px 12px rgba(35, 78, 112, 0.06);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 320px;
+}
+
+.coaching-career-tabs {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+}
+.coaching-career-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.coaching-career-tab {
+  background: #fff;
+  color: #234e70;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 32px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(35, 78, 112, 0.04);
+  margin: 0 2px;
+}
+
+.coaching-career-tab.active {
+  background: #234e70;
+  color: #fff;
+  font-weight: 800;
+}
+
+.coaching-career-tab-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.coaching-career-panel {
+  display: none;
+  animation: fadeIn 0.4s;
+}
+
+.coaching-career-panel.active {
+  display: block;
+}
+
+.coaching-career-panel-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1a365d;
+  margin-bottom: 32px;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+.coaching-career-panel-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: center;
+}
+
+/* Capsule border color for each coaching type */
+#tab-individual .coaching-career-panel-title {
+  color: #234e70;
+}
+#tab-life .coaching-career-panel-title {
+  color: #1a8fe3;
+}
+#tab-executive .coaching-career-panel-title {
+  color: #f9b233;
+}
+#tab-leadership .coaching-career-panel-title {
+  color: #e94e77;
+}
+
+/* Panel box: rectangle with rounded corners, left-aligned content */
+.coaching-career-panel-box {
+  border: 2.5px solid #234e70;
+  border-radius: 18px;
+  background: #fff;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 4px 24px rgba(35, 78, 112, 0.06);
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+/* Border color for each type */
+#tab-individual .coaching-career-panel-box {
+  border-color: #234e70;
+}
+#tab-life .coaching-career-panel-box {
+  border-color: #1a8fe3;
+}
+#tab-executive .coaching-career-panel-box {
+  border-color: #f9b233;
+}
+#tab-leadership .coaching-career-panel-box {
+  border-color: #e94e77;
+}
+
+/* Panel part: left-aligned content */
+.coaching-career-panel-part {
+  width: 100%;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Header color for each type, rectangle with rounded border */
+.coaching-career-panel-part-header {
+  font-size: 1.08rem;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 8px 28px;
+  margin-bottom: 14px;
+  display: inline-block;
+  text-align: left;
+  letter-spacing: 0.2px;
+  border: 1.5px solid transparent;
+}
+
+#tab-individual .coaching-career-panel-part-header {
+  background: #e3eafc;
+  color: #234e70;
+  border-color: #234e70;
+}
+#tab-life .coaching-career-panel-part-header {
+  background: #e6f4fb;
+  color: #1a8fe3;
+  border-color: #1a8fe3;
+}
+#tab-executive .coaching-career-panel-part-header {
+  background: #fff7e6;
+  color: #f9b233;
+  border-color: #f9b233;
+}
+#tab-leadership .coaching-career-panel-part-header {
+  background: #fde6ef;
+  color: #e94e77;
+  border-color: #e94e77;
+}
+
+/* Panel title hover state for each type */
+#tab-individual .coaching-career-panel-title:hover {
+  color: #fff;
+  background: #234e70;
+  border-radius: 12px;
+  padding: 4px 16px;
+  transition: background 0.2s, color 0.2s;
+}
+#tab-life .coaching-career-panel-title:hover {
+  color: #fff;
+  background: #1a8fe3;
+  border-radius: 12px;
+  padding: 4px 16px;
+  transition: background 0.2s, color 0.2s;
+}
+#tab-executive .coaching-career-panel-title:hover {
+  color: #fff;
+  background: #f9b233;
+  border-radius: 12px;
+  padding: 4px 16px;
+  transition: background 0.2s, color 0.2s;
+}
+#tab-leadership .coaching-career-panel-title:hover {
+  color: #fff;
+  background: #e94e77;
+  border-radius: 12px;
+  padding: 4px 16px;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Panel part header hover state for each type */
+#tab-individual .coaching-career-panel-part-header:hover {
+  background: #234e70;
+  color: #fff;
+  border-color: #234e70;
+  transition: background 0.2s, color 0.2s;
+}
+#tab-life .coaching-career-panel-part-header:hover {
+  background: #1a8fe3;
+  color: #fff;
+  border-color: #1a8fe3;
+  transition: background 0.2s, color 0.2s;
+}
+#tab-executive .coaching-career-panel-part-header:hover {
+  background: #f9b233;
+  color: #fff;
+  border-color: #f9b233;
+  transition: background 0.2s, color 0.2s;
+}
+#tab-leadership .coaching-career-panel-part-header:hover {
+  background: #e94e77;
+  color: #fff;
+  border-color: #e94e77;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Tab hover state for each type */
+.coaching-career-tab[data-tab="individual"]:hover,
+.coaching-career-tab[data-tab="individual"].active {
+  background: #234e70;
+  color: #fff;
+}
+.coaching-career-tab[data-tab="life"]:hover,
+.coaching-career-tab[data-tab="life"].active {
+  background: #1a8fe3;
+  color: #fff;
+}
+.coaching-career-tab[data-tab="executive"]:hover,
+.coaching-career-tab[data-tab="executive"].active {
+  background: #f9b233;
+  color: #fff;
+}
+.coaching-career-tab[data-tab="leadership"]:hover,
+.coaching-career-tab[data-tab="leadership"].active {
+  background: #e94e77;
+  color: #fff;
+}
+
+/* Content left-aligned */
+.coaching-career-panel-part p,
+.coaching-career-panel-part ul {
+  font-size: 1rem;
+  color: #2d3748;
+  font-weight: 400;
+  margin-bottom: 0;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.coaching-career-panel-part ul {
+  list-style: disc inside;
+  padding-left: 0;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .coaching-career-panel-box {
+    max-width: 100%;
+    padding: 0;
+  }
+  .coaching-career-panel-part {
+    padding: 20px 10px;
+  }
+}
+
+/* Make the tab pills scrollable on mobile */
+.coaching-career-tabs-capsule-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 36px;
+}
+
+.coaching-career-tabs-capsule {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e3eafc;
+  border-radius: 999px;
+  padding: 14px 18px;
+  box-shadow: 0 2px 12px rgba(35, 78, 112, 0.06);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 320px;
+}
+
+.coaching-career-tabs {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+}
+.coaching-career-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .coaching-career-tabs-capsule {
+    min-width: unset;
+    width: max-content;
+    padding: 10px 8px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .coaching-career-tabs-capsule-scroll {
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .coaching-career-tabs {
+    gap: 10px;
+    min-width: 420px;
+  }
+  .coaching-career-tab {
+    min-width: 180px;
+    font-size: 1rem;
+    padding: 10px 18px;
+    white-space: nowrap;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* Panel title: only "Becoming a" colored, rest normal, no hover effect */
+#tab-individual .coaching-career-panel-title .coaching-career-panel-title-prefix {
+  color: #234e70;
+}
+#tab-life .coaching-career-panel-title .coaching-career-panel-title-prefix {
+  color: #1a8fe3;
+}
+#tab-executive .coaching-career-panel-title .coaching-career-panel-title-prefix {
+  color: #f9b233;
+}
+#tab-leadership .coaching-career-panel-title .coaching-career-panel-title-prefix {
+  color: #e94e77;
+}
+
+/* The rest of the title (e.g. "LEADERSHIP COACH") should always be #1a365d */
+#tab-individual .coaching-career-panel-title,
+#tab-life .coaching-career-panel-title,
+#tab-executive .coaching-career-panel-title,
+#tab-leadership .coaching-career-panel-title {
+  color: #1a365d;
+}
+#tab-individual .coaching-career-panel-title .coaching-career-panel-title-prefix, #tab-life .coaching-career-panel-title .coaching-career-panel-title-prefix, #tab-executive .coaching-career-panel-title .coaching-career-panel-title-prefix, #tab-leadership .coaching-career-panel-title .coaching-career-panel-title-prefix {
+    font-weight: inherit;
+    font-family: 'Wildstripe';
+}
+
+/* Remove hover effect from panel titles */
+#tab-individual .coaching-career-panel-title:hover,
+#tab-life .coaching-career-panel-title:hover,
+#tab-executive .coaching-career-panel-title:hover,
+#tab-leadership .coaching-career-panel-title:hover {
+  background: none;
+  color: #1a365d;
+  border-radius: 0;
+  padding: 0;
+  transition: none;
+}
+
+.coaching-why-section {
+  background: #f7fafc;
+  padding: 56px 0 48px 0;
+}
+
+.coaching-why-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.coaching-why-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+}
+
+.coaching-why-card {
+  flex: 1 1 240px;
+  max-width: 270px;
+  min-width: 220px;
+  border-radius: 22px;
+  padding: 32px 24px 28px 24px;
+  box-shadow: 0 4px 24px rgba(35, 78, 112, 0.09);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.18s, box-shadow 0.18s;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  background: #234e70; /* fallback, will be overridden below */
+}
+
+.coaching-why-card-blue {
+  background: #234e70;
+}
+.coaching-why-card-green {
+  background: #1a8fe3;
+}
+.coaching-why-card-yellow {
+  background: #f9b233;
+  color: #234e70;
+}
+.coaching-why-card-yellow .coaching-why-card-desc,
+.coaching-why-card-yellow .coaching-why-card-heading {
+  color: #234e70;
+}
+.coaching-why-card-pink {
+  background: #e94e77;
+}
+
+.coaching-why-card-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  color: #fff;
+}
+.coaching-why-card-yellow .coaching-why-card-icon {
+  color: #234e70;
+}
+
+.coaching-why-card-heading {
+  font-size: 1.13rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-align: center;
+  letter-spacing: 0.2px;
+}
+
+.coaching-why-card-desc {
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  color: inherit;
+  line-height: 1.6;
+}
+
+/* Card hover effect */
+.coaching-why-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(35, 78, 112, 0.18);
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .coaching-why-cards {
+    gap: 20px;
+  }
+  .coaching-why-card {
+    max-width: 100%;
+    min-width: 180px;
+    padding: 28px 12px 24px 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .coaching-why-cards {
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+  }
+  .coaching-why-card {
+    width: 100%;
+    max-width: 400px;
+    min-width: 0;
+  }
+}

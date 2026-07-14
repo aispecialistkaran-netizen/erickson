@@ -1,0 +1,121 @@
+/* Import Wildstripe font */
+@font-face {
+  font-family: 'Wildstripe';
+  src: url('Wildstripe.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Hero Section Styles */
+.erickson-hero-sectionx {
+    background: url('ericksonplus.png') no-repeat center top/cover;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 5vw;
+}
+
+.erickson-hero-content {
+    text-align: right;
+    color: white;
+    z-index: 10;
+}
+
+.erickson-hero-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.erickson-hero-title span {
+    font-family: 'Wildstripe', Arial, sans-serif;
+    display: block;
+}
+
+/* Program Pathway Styles */
+.program-pathway-heading {
+    color: #429FC5;
+    font-weight: 700;
+}
+
+.pathway-carousel-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.pathway-carousel-wrapper {
+    display: flex;
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pathway-slide {
+    min-width: 100%;
+    flex-shrink: 0;
+}
+
+.pathway-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.pathway-indicator {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.pathway-indicator.active {
+    background-color: #2563eb !important;
+}
+
+.pathway-prev,
+.pathway-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 0.75rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pathway-prev {
+    left: 1rem;
+}
+
+.pathway-next {
+    right: 1rem;
+}
+
+.pathway-prev:hover,
+.pathway-next:hover {
+    background: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .erickson-hero-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .erickson-hero-title {
+        font-size: 1.875rem;
+    }
+    
+    .erickson-hero-sectionx {
+        min-height: 30vh;
+        padding: 0 2rem;
+    }
+}

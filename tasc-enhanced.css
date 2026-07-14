@@ -1,0 +1,645 @@
+/* The Art & Science of Coaching - Enhanced Sections CSS */
+
+/* ===== TASC Hero Section ===== */
+.tasc-hero-section {
+    position: relative;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #2355cf 0%, #1a4bb8 100%);
+    color: white;
+    overflow: hidden;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+}
+
+.tasc-hero-wrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* Left Column - Hero Content */
+.tasc-hero-left {
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.tasc-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.tasc-badge i {
+    font-size: 1.1rem;
+}
+
+.tasc-hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.tasc-highlight {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tasc-hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.tasc-hero-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 35px;
+}
+
+/* Trust Indicators */
+.tasc-trust-indicators {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.tasc-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.tasc-trust-item i {
+    font-size: 1.3rem;
+    color: #FFD700;
+}
+
+/* CTA Buttons */
+.tasc-cta-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.tasc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.tasc-btn-primary {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    color: #1a3a7a;
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+}
+
+.tasc-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(255, 215, 0, 0.4);
+}
+
+.tasc-btn-secondary {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+.tasc-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Right Column - Features Box */
+.tasc-hero-right {
+    animation: slideInRight 0.8s ease-out;
+}
+
+.tasc-features-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.tasc-feature-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.tasc-feature-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.tasc-feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #FFD700;
+}
+
+.tasc-feature-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.tasc-feature-card p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+/* Decorative Elements */
+.tasc-hero-decoration {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.tasc-deco-1 {
+    width: 400px;
+    height: 400px;
+    background: white;
+    top: -100px;
+    right: -100px;
+}
+
+.tasc-deco-2 {
+    width: 300px;
+    height: 300px;
+    background: white;
+    bottom: -50px;
+    left: -50px;
+}
+
+/* ===== Why Choose Section ===== */
+.tasc-why-section {
+    padding: 80px 20px;
+    background: #f8f9fa;
+}
+
+.tasc-why-container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.tasc-section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.tasc-section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.tasc-section-header p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.tasc-section-header.tasc-center {
+    text-align: center;
+}
+
+.tasc-why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.tasc-why-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-top: 4px solid #2355cf;
+}
+
+.tasc-why-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(35, 85, 207, 0.15);
+}
+
+.tasc-why-icon {
+    font-size: 2.5rem;
+    color: #2355cf;
+    margin-bottom: 20px;
+}
+
+.tasc-why-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 12px;
+}
+
+.tasc-why-card p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ===== Program Overview Section ===== */
+.tasc-overview-section {
+    padding: 80px 20px;
+    background: white;
+}
+
+.tasc-overview-container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.tasc-overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 50px;
+}
+
+.tasc-overview-track {
+    background: #f8f9fa;
+    padding: 40px;
+    border-radius: 12px;
+    border-left: 5px solid #2355cf;
+}
+
+.tasc-track-header h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.tasc-track-subtitle {
+    font-size: 0.95rem;
+    color: #2355cf;
+    font-weight: 600;
+    margin: 0;
+}
+
+.tasc-course-parts {
+    margin-top: 30px;
+}
+
+.tasc-course-part {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.tasc-part-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #2355cf 0%, #1a4bb8 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.tasc-part-content h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0 0 8px 0;
+}
+
+.tasc-part-content p {
+    color: #2355cf;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    font-size: 0.95rem;
+}
+
+.tasc-part-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tasc-part-items li {
+    padding: 8px 0;
+    color: #555;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+
+.tasc-part-items li:before {
+    content: "✓";
+    color: #2355cf;
+    font-weight: 700;
+    margin-right: 12px;
+    font-size: 1.1rem;
+}
+
+.tasc-part-divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #2355cf, transparent);
+    margin: 20px 0;
+}
+
+/* ===== Benefits Section ===== */
+.tasc-benefits-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e8ecf5 100%);
+}
+
+.tasc-benefits-container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.tasc-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.tasc-benefit-item {
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.tasc-benefit-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(35, 85, 207, 0.15);
+}
+
+.tasc-benefit-icon {
+    font-size: 2.5rem;
+    color: #2355cf;
+    margin-bottom: 15px;
+}
+
+.tasc-benefit-item h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 12px;
+}
+
+.tasc-benefit-item p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ===== Stats Section ===== */
+.tasc-stats-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #2355cf 0%, #1a4bb8 100%);
+    color: white;
+}
+
+.tasc-stats-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.tasc-stat-card {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.tasc-stat-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #FFD700;
+    margin-bottom: 10px;
+}
+
+.tasc-stat-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ===== Animations ===== */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
+    .tasc-hero-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .tasc-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .tasc-overview-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .tasc-trust-indicators {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .tasc-features-box {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .tasc-feature-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tasc-hero-section {
+        padding: 60px 20px;
+        min-height: auto;
+    }
+
+    .tasc-hero-title {
+        font-size: 2rem;
+    }
+
+    .tasc-hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .tasc-section-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .tasc-cta-buttons {
+        flex-direction: column;
+    }
+
+    .tasc-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .tasc-features-box {
+        grid-template-columns: 1fr;
+    }
+
+    .tasc-why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tasc-overview-track {
+        padding: 30px;
+    }
+
+    .tasc-course-part {
+        grid-template-columns: 50px 1fr;
+    }
+
+    .tasc-part-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.4rem;
+    }
+
+    .tasc-stats-container {
+        grid-template-columns: 1fr;
+    }
+
+    .tasc-stat-number {
+        font-size: 2.2rem;
+    }
+
+    .tasc-deco-1,
+    .tasc-deco-2 {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .tasc-hero-section {
+        padding: 40px 15px;
+    }
+
+    .tasc-hero-title {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .tasc-hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .tasc-hero-description {
+        font-size: 0.95rem;
+    }
+
+    .tasc-badge {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 15px;
+        font-size: 0.85rem;
+    }
+
+    .tasc-section-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .tasc-why-grid {
+        gap: 20px;
+    }
+
+    .tasc-why-card {
+        padding: 25px 20px;
+    }
+
+    .tasc-overview-track {
+        padding: 20px;
+    }
+
+    .tasc-benefit-item {
+        padding: 25px 15px;
+    }
+
+    .tasc-stat-number {
+        font-size: 1.8rem;
+    }
+
+    .tasc-stat-label {
+        font-size: 0.95rem;
+    }
+}

@@ -1,0 +1,8 @@
+/* Fix for stat numbers to ensure they are white */
+.stat-card .stat-number,
+.stat-card-header .stat-number,
+.statistics-section .stat-number,
+.stat-number {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+}

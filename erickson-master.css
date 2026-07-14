@@ -1,0 +1,226 @@
+/* Why Erickson Coaching International - Iridescent Studio UI */
+
+.erickson-master-section {
+    padding: 120px 0;
+    background: #fdfdfd;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Mesh Gradients */
+.erickson-master-section::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(99, 183, 211, 0.08) 0%, transparent 70%);
+    filter: blur(80px);
+    z-index: 1;
+}
+
+/* 1. Header */
+.master-header {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 80px;
+    position: relative;
+    z-index: 10;
+}
+
+.master-badge {
+    color: #E88755;
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.master-title {
+    font-family: 'Wildstripe', sans-serif;
+    font-size: 4rem;
+    line-height: 1.1;
+    color: #073F52;
+    margin-bottom: 25px;
+}
+
+.master-intro {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* 2. Reference Grid (At a Glance & Hours) */
+.master-reference-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 40px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.master-card {
+    background: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(7, 63, 82, 0.06);
+    border: 1px solid rgba(7, 63, 82, 0.02);
+    overflow: hidden;
+}
+
+.master-card-header {
+    background: linear-gradient(135deg, #073F52 0%, #1c4d5e 100%);
+    padding: 30px 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.master-card-header i { color: #EBBC34; font-size: 1.4rem; }
+.master-card-header h3 { font-family: 'Wildstripe', sans-serif; font-size: 1.8rem; color: #ffffff; margin: 0; }
+
+.master-card-body { padding: 40px; }
+.glance-items li { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #f5f5f5; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; }
+.master-table-wrapper { 
+    overflow-x: auto; 
+    padding-bottom: 15px; /* Space for scrollbar */
+    -webkit-overflow-scrolling: touch; /* Smooth scroll for iOS */
+}
+
+.master-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    min-width: 450px; /* Force minimum width to enable scroll on tiny screens */
+}
+
+.master-table th { 
+    background: #f8fbfd; 
+    color: #073F52; 
+    padding: 12px 10px; 
+    text-transform: uppercase; 
+    font-size: 0.75rem; 
+    letter-spacing: 1px; 
+    white-space: nowrap;
+}
+
+.master-table td { 
+    padding: 15px 10px; 
+    border-bottom: 1px solid #f5f5f5; 
+    font-size: 0.85rem; 
+    line-height: 1.4;
+}
+
+.master-table td strong { white-space: nowrap; }
+
+/* 3. Authority Pillars (Horizontal Row) */
+.master-pillars-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 10;
+}
+
+.pillar-item {
+    background: #ffffff;
+    padding: 45px 35px;
+    border-radius: 24px;
+    border-left: 6px solid #63B7D3;
+    box-shadow: 0 10px 30px rgba(7, 63, 82, 0.04);
+    transition: all 0.4s ease;
+}
+
+.pillar-item:nth-child(1) { border-left-color: #EBBC34; }
+.pillar-item:nth-child(3) { border-left-color: #E88755; }
+
+.pillar-item:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(7, 63, 82, 0.08); }
+
+.pillar-icon { font-size: 2.2rem; margin-bottom: 25px; }
+.pillar-item:nth-child(1) .pillar-icon { color: #EBBC34; }
+.pillar-item:nth-child(2) .pillar-icon { color: #63B7D3; }
+.pillar-item:nth-child(3) .pillar-icon { color: #E88755; }
+
+.pillar-item h4 { font-family: 'Wildstripe', sans-serif; font-size: 1.8rem; color: #073F52; margin-bottom: 15px; }
+.pillar-item p { font-family: 'Montserrat', sans-serif; color: #666; line-height: 1.6; font-size: 0.95rem; }
+
+/* 4. Global Metrics Grid (Merged) */
+.master-metrics-grid {
+    background: #073F52;
+    padding: 80px 60px;
+    border-radius: 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.metric-box { text-align: left; position: relative; }
+
+.metric-number {
+    font-family: 'Wildstripe', sans-serif;
+    font-size: 5.5rem;
+    line-height: 0.9;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #EBBC34 0%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.5s ease;
+}
+
+.metric-box:hover .metric-number {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 15px rgba(235, 188, 52, 0.3));
+}
+
+.metric-label { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.95rem; color: #ffffff; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+.metric-sub { font-family: 'Montserrat', sans-serif; color: rgba(255, 255, 255, 0.5); font-size: 0.85rem; line-height: 1.5; }
+
+/* Integrated FAQ Banner (Inside Grid) */
+.integrated-faq-banner {
+    grid-column: span 4;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.faq-pill {
+    display: inline-block;
+    background: #EBBC34;
+    color: #073F52;
+    font-weight: 900;
+    font-size: 0.75rem;
+    padding: 5px 15px;
+    border-radius: 50px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.integrated-faq-banner p { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; line-height: 1.7; margin: 0; }
+.integrated-faq-banner strong { color: #EBBC34; font-size: 1.2rem; display: block; margin-bottom: 8px; }
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .master-reference-grid { grid-template-columns: 1fr; }
+    .master-metrics-grid { grid-template-columns: 1fr 1fr; padding: 50px 30px; }
+    .integrated-faq-banner { grid-column: span 2; }
+}
+
+@media (max-width: 768px) {
+    .master-title { font-size: 2.8rem; }
+    .master-pillars-row { grid-template-columns: 1fr; }
+    .master-metrics-grid { grid-template-columns: 1fr; padding: 40px 20px; }
+    .integrated-faq-banner { grid-column: span 1; padding: 30px 20px; }
+    .metric-number { font-size: 4.5rem; }
+    
+    .master-card-body { padding: 25px 20px; }
+    .master-table td, .master-table th { padding: 12px 8px; font-size: 0.8rem; }
+}

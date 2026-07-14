@@ -1,0 +1,270 @@
+.concentric-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-circle {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 20px;
+}
+
+.center-circle h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.center-circle p {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin: 0;
+}
+
+.center-circle .logo {
+  max-width: 80px;
+  margin-bottom: 15px;
+}
+
+.orbit {
+  position: absolute;
+  border: 1px dashed rgba(44, 62, 80, 0.2);
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+
+.orbit-1 {
+  width: 400px;
+  height: 400px;
+}
+
+.orbit-2 {
+  width: 600px;
+  height: 600px;
+}
+
+.principle {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  padding: 15px;
+  z-index: 5;
+}
+
+.principle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  z-index: 11;
+}
+
+.principle h4 {
+  font-size: 1rem;
+  margin: 10px 0;
+  color: #2c3e50;
+}
+
+.principle p {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  margin: 0;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.principle:hover p {
+  opacity: 1;
+  max-height: 80px;
+  margin-top: 8px;
+}
+
+.principle .icon {
+  font-size: 1.8rem;
+  color: #3498db;
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+}
+
+.principle:hover .icon {
+  transform: translateY(-5px);
+}
+
+.principle:nth-child(1) {
+  background-color: #ffffff;
+  transform: translate(200px, 0);
+}
+
+.principle:nth-child(2) {
+  background-color: #ffffff;
+  transform: translate(124px, 160px);
+}
+
+.principle:nth-child(3) {
+  background-color: #ffffff;
+  transform: translate(-124px, 160px);
+}
+
+.principle:nth-child(4) {
+  background-color: #ffffff;
+  transform: translate(-200px, 0);
+}
+
+.principle:nth-child(5) {
+  background-color: #ffffff;
+  transform: translate(0, -200px);
+}
+
+.principle:nth-child(1) .icon {
+  color: #e74c3c;
+}
+
+.principle:nth-child(2) .icon {
+  color: #2ecc71;
+}
+
+.principle:nth-child(3) .icon {
+  color: #f39c12;
+}
+
+.principle:nth-child(4) .icon {
+  color: #9b59b6;
+}
+
+.principle:nth-child(5) .icon {
+  color: #3498db;
+}
+
+.concentric-container.active-animation .orbit {
+  animation: rotate 30s infinite linear;
+}
+
+.concentric-container.active-animation .principle {
+  animation: counter-rotate 30s infinite linear;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes counter-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .concentric-container {
+    height: 600px;
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 767px) {
+  .concentric-container {
+    height: auto;
+    transform: none;
+  }
+
+  .center-circle {
+    position: relative;
+    margin-bottom: 30px;
+  }
+
+  .orbit {
+    display: none;
+  }
+
+  .principle {
+    position: relative;
+    margin: 15px auto;
+    transform: none !important;
+  }
+
+  .principle p {
+    opacity: 1;
+    max-height: 100px;
+    margin-top: 8px;
+  }
+}
+
+/* Entrance animation */
+.concentric-container {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.concentric-container.visible {
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.principle {
+  opacity: 0;
+  transform-origin: center;
+}
+
+.principle.visible {
+  animation: zoomIn 0.5s ease forwards;
+}
+
+@keyframes zoomIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Active state styles */
+.principle.active {
+  transform: scale(1.2);
+  z-index: 20;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.principle.active p {
+  opacity: 1;
+  max-height: 80px;
+}

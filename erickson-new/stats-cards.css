@@ -1,0 +1,391 @@
+/* Global Impact Stats Section - Completely Redesigned */
+.statistics-section {
+    padding: 6rem 0;
+    background-color: #f8f9fa;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Diagonal design element */
+.statistics-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(7,63,82,0.03) 0%, rgba(99,183,211,0.05) 100%);
+    clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+    z-index: 0;
+}
+
+/* Header styles for stats section */
+.stats-header {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-bottom: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stats-header::after {
+    content: '';
+    position: absolute;
+    bottom: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--erickson-accent);
+}
+
+.stats-header .stats-badge {
+    display: inline-block;
+    background-color: var(--erickson-secondary);
+    color: #ffffff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 33px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stats-header .stats-title {
+    color: #073F52;
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin: 1rem 0;
+    position: relative;
+    display: inline-block;
+}
+
+.stats-header .stats-subtitle {
+    color: #666666;
+    max-width: 600px;
+    margin: 0.5rem auto 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.stats-cards {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+
+.stat-card {
+    width: calc(25% - 15px);
+    background: #ffffff;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 300px; /* Fixed height for all cards */
+}
+.stat-card-header {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.stat-card:nth-child(1) .stat-card-header {
+    background-color: #4FACCE;
+    background-image: linear-gradient(135deg, rgba(255,255,255,0.1) 25%, transparent 25%);
+    background-size: 10px 10px;
+    border-radius: 8px 8px 0 0;
+}
+
+.stat-card:nth-child(2) .stat-card-header {
+    background-color: #DAA520; /* More readable gold */
+    background-image: linear-gradient(135deg, rgba(255,255,255,0.1) 25%, transparent 25%);
+    background-size: 10px 10px;
+    border-radius: 8px 8px 0 0;
+}
+
+.stat-card:nth-child(3) .stat-card-header {
+    background-color: #E87941; /* Slightly darker orange for better contrast */
+    background-image: linear-gradient(135deg, rgba(255,255,255,0.1) 25%, transparent 25%);
+    background-size: 10px 10px;
+    border-radius: 8px 8px 0 0;
+}
+
+.stat-card:nth-child(4) .stat-card-header {
+    background-color: #0A506A; /* Slightly lighter for better text visibility */
+    background-image: linear-gradient(135deg, rgba(255,255,255,0.1) 25%, transparent 25%);
+    background-size: 10px 10px;
+    border-radius: 8px 8px 0 0;
+}
+
+.stat-card-content {
+    padding: 0 1.5rem 1.5rem;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    border-radius: 0 0 8px 8px;
+}
+
+.stat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.stat-number, .stat-card .stat-number, .stat-card-header .stat-number {
+    font-size: 3rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff !important;
+    margin: 0;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    width: 100%;
+    padding: 0 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.stat-icon {
+    font-size: 1.8rem;
+    color: #333333;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem auto;
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+}
+
+.stat-card:nth-child(1) .stat-icon {
+    color: #4FACCE;
+}
+
+.stat-card:nth-child(2) .stat-icon {
+    color: #DAA520;
+}
+
+.stat-card:nth-child(3) .stat-icon {
+    color: #E87941;
+}
+
+.stat-card:nth-child(4) .stat-icon {
+    color: #0A506A;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #333333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 0.5rem;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.stat-label::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    margin: 0.5rem auto 0;
+    background-color: #e0e0e0;
+}
+
+.stat-description {
+    font-size: 0.85rem;
+    color: #666666;
+    line-height: 1.4;
+    text-align: center;
+    margin: 0 0 1rem;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Per-card accent colors for labels */
+.stat-card:nth-child(1) .stat-label::after { 
+    background-color: #63B7D3; 
+}
+.stat-card:nth-child(2) .stat-label::after { 
+    background-color: #EBBC34; 
+}
+.stat-card:nth-child(3) .stat-label::after { 
+    background-color: #E88755; 
+}
+.stat-card:nth-child(4) .stat-label::after { 
+    background-color: #073F52; 
+}
+
+/* Card hover accents */
+.stat-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    transition: width 0.3s ease;
+}
+
+.stat-card:hover::after {
+    width: 100%;
+}
+
+.stat-card:nth-child(1)::after {
+    background-color: #63B7D3;
+}
+
+.stat-card:nth-child(2)::after {
+    background-color: #EBBC34;
+}
+
+.stat-card:nth-child(3)::after {
+    background-color: #E88755;
+}
+
+.stat-card:nth-child(4)::after {
+    background-color: #073F52;
+}
+
+/* Background pattern elements */
+.statistics-section .pattern-dots {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-image: radial-gradient(#073F52 2px, transparent 2px);
+    background-size: 20px 20px;
+    opacity: 0.05;
+    z-index: 0;
+}
+
+.statistics-section .pattern-dots-1 {
+    top: 10%;
+    left: 5%;
+}
+
+.statistics-section .pattern-dots-2 {
+    bottom: 15%;
+    right: 5%;
+}
+
+/* Add floating shapes */
+.statistics-section::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background-color: #ffffff;
+    clip-path: polygon(0 0, 100% 50%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+
+/* Section decoration */
+.statistics-section .section-decoration {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.statistics-section .decoration-1 {
+    top: 15%;
+    right: 5%;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #EBBC34;
+    opacity: 0.15;
+}
+
+.statistics-section .decoration-2 {
+    bottom: 20%;
+    left: 8%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 6px solid #63B7D3;
+    opacity: 0.15;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .stats-cards {
+        padding: 0 1.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .stats-cards {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    
+    .stat-card {
+        width: calc(50% - 15px);
+    }
+}
+
+@media (max-width: 768px) {
+    .statistics-section {
+        padding: 5rem 0;
+    }
+    
+    .stats-header .stats-title {
+        font-size: 2.4rem;
+    }
+    
+    .stats-cards {
+        padding: 0 1rem;
+        flex-direction: column;
+    }
+    
+    .stat-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .stat-card-header {
+        height: 100px;
+    }
+    
+    .stat-card .stat-number,
+    .stat-card-header .stat-number {
+        font-size: 3.5rem;
+        color: #ffffff !important;
+    }
+}
+
+@media (max-width: 480px) {    
+    .stat-card .stat-number,
+    .stat-card-header .stat-number {
+        font-size: 3.2rem;
+        color: #ffffff !important;
+    }
+}

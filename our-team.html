@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '915098220958914');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=915098220958914&ev=PageView&noscript=1"
+/>
+</noscript>
+<!-- End Meta Pixel Code -->
+
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://www.erickson.co.in/wp-content/uploads/2025/12/favicon.png" sizes="96x96" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - Erickson Coaching International</title>
+    <meta name="description" content="Meet the passionate team behind Erickson Coaching International. World-class coaches, mentors, and professionals dedicated to your success.">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="global.css">
+
+    <style>
+        /* Custom Font */
+        @font-face {
+            font-family: 'Wild Stripe';
+            src: url('Wildstripe.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Modern Team Page Styles */
+        :root {
+            --primary-color: #073F52;
+            --secondary-color: #63B7D3;
+            --accent-color: #EBBC34;
+            --accent-secondary: #E88755;
+            --text-dark: #073F52;
+            --text-light: #ffffff;
+            --text-gray: #666666;
+            --bg-light: #f8fafc;
+            --shadow-light: rgba(7, 63, 82, 0.08);
+            --shadow-dark: rgba(7, 63, 82, 0.15);
+            --gradient-primary: linear-gradient(135deg, #073F52 0%, #63B7D3 100%);
+            --gradient-accent: linear-gradient(135deg, #EBBC34 0%, #E88755 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+.team-hero {
+    position: relative;
+    min-height: 500px;
+    background: linear-gradient(135deg, rgba(7, 63, 82, 0.85) 0%, rgba(99, 183, 211, 0.8) 100%),
+                        url('teamwork1.png') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    color: var(--text-light);
+    overflow: hidden;
+    padding: 0 5%;
+}
+
+        .team-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+
+        /* Hero Canvas for Particles */
+        .hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* Hero Background Elements */
+        .hero-bg-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .hero-shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: morphShape 8s ease-in-out infinite;
+        }
+
+        .shape-1 {
+            width: 120px;
+            height: 120px;
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+            border-radius: 60% 40% 30% 70%;
+        }
+
+        .shape-2 {
+            width: 80px;
+            height: 80px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+            border-radius: 30% 70% 60% 40%;
+        }
+
+        .shape-3 {
+            width: 100px;
+            height: 100px;
+            bottom: 20%;
+            left: 70%;
+            animation-delay: 4s;
+            border-radius: 50% 20% 80% 30%;
+        }
+
+        .shape-4 {
+            width: 60px;
+            height: 60px;
+            top: 40%;
+            left: 20%;
+            animation-delay: 6s;
+            border-radius: 80% 20% 40% 60%;
+        }
+
+        .shape-5 {
+            width: 90px;
+            height: 90px;
+            bottom: 40%;
+            right: 30%;
+            animation-delay: 8s;
+            border-radius: 40% 60% 80% 20%;
+        }
+
+        .hero-icon {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.4);
+            animation: floatIcon 6s ease-in-out infinite, pulse 3s ease-in-out infinite;
+        }
+
+        .icon-1 {
+            top: 25%;
+            right: 20%;
+            animation-delay: 1s, 0s;
+        }
+
+        .icon-2 {
+            top: 50%;
+            left: 15%;
+            animation-delay: 3s, 1s;
+        }
+
+        .icon-3 {
+            bottom: 30%;
+            right: 25%;
+            animation-delay: 5s, 2s;
+        }
+
+        .icon-4 {
+            top: 20%;
+            left: 30%;
+            animation-delay: 7s, 0.5s;
+        }
+
+        .icon-5 {
+            bottom: 50%;
+            left: 25%;
+            animation-delay: 9s, 1.5s;
+        }
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 100%;
+    padding: 0;
+    animation: slideUp 1.5s ease-out;
+    transform-style: preserve-3d;
+}
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: fadeInScale 1s ease-out 0.5s both;
+        }
+
+        .hero-title {
+            font-family: 'Wild Stripe', serif;
+            font-size: clamp(3.5rem, 10vw, 6rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 4px solid rgba(235, 188, 52, 0.9);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(235, 188, 52, 0.3);
+            animation: typing 5s steps(27, end) 1s both, blink-caret 0.75s step-end infinite 6s, textGlow 3s ease-in-out infinite 7s;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            line-height: 1.7;
+            opacity: 0.95;
+            max-width: 500px;
+            margin: 0 0 50px 0;
+            animation: fadeInUp 1s ease-out 1.5s both;
+        }
+
+        /* Hero Stats */
+        .hero-stats {
+            display: flex;
+            justify-content: flex-start;
+            gap: 40px;
+            margin-top: 40px;
+            animation: fadeInUp 1s ease-out 2s both;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-width: 150px;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #EBBC34;
+            margin-bottom: 5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Scroll Indicator */
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            animation: bounce 2s ease-in-out infinite;
+            z-index: 3;
+        }
+
+        .scroll-mouse {
+            width: 24px;
+            height: 36px;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .scroll-wheel {
+            width: 4px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 2px;
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scrollWheel 2s ease-in-out infinite;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, rgba(248, 250, 252, 0.8) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(248, 250, 252, 0.8) 100%);
+            position: relative;
+        }
+
+        .team-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(99, 183, 211, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(235, 188, 52, 0.08) 0%, transparent 50%);
+        }
+
+.container {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--gradient-accent);
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-family: 'Wild Stripe', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            row-gap: 60px;
+            column-gap: 40px;
+            margin-top: 60px;
+        }
+
+        /* Team Cards */
+        .team-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 100%);
+            border-radius: 20px;
+            overflow: visible;
+            box-shadow: 0 15px 35px rgba(7, 63, 82, 0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+            padding-top: 70px;
+            min-height: 220px;
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 20px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            z-index: -1;
+        }
+
+        .team-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(7, 63, 82, 0.15);
+        }
+
+        .team-card:hover::before {
+            background: linear-gradient(135deg, var(--accent-secondary), var(--primary-color));
+        }
+
+        .team-card:nth-child(1) { animation-delay: 0.1s; }
+        .team-card:nth-child(2) { animation-delay: 0.2s; }
+        .team-card:nth-child(3) { animation-delay: 0.3s; }
+        .team-card:nth-child(4) { animation-delay: 0.4s; }
+        .team-card:nth-child(5) { animation-delay: 0.5s; }
+        .team-card:nth-child(6) { animation-delay: 0.6s; }
+        .team-card:nth-child(7) { animation-delay: 0.7s; }
+        .team-card:nth-child(8) { animation-delay: 0.8s; }
+        .team-card:nth-child(9) { animation-delay: 0.9s; }
+
+        .team-card::after {
+            content: '';
+            position: absolute;
+            bottom: 12px;
+            left: 20px;
+            right: 20px;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(99,183,211,0.18), rgba(235,188,52,0.18));
+            border-radius: 2px;
+            opacity: 0.9;
+        }
+
+        .team-image-container {
+            position: absolute;
+            left: 50%;
+            top: -40px;
+            transform: translateX(-50%);
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--secondary-color);
+            box-shadow: 0 8px 20px rgba(7,63,82,0.15);
+            background: linear-gradient(135deg, var(--bg-light), rgba(99, 183, 211, 0.1));
+        }
+
+.team-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+        .team-card:hover .team-image {
+            transform: scale(1.04);
+        }
+
+        .team-social {
+            display: inline-flex;
+            gap: 12px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .team-social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: var(--bg-light);
+            color: var(--primary-color);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .team-social-link:hover {
+            transform: translateY(-4px);
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        .team-content {
+            padding: 18px 30px 30px;
+            text-align: center;
+        }
+
+        .team-name {
+            font-family: 'Wild Stripe', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .team-card:hover .team-name {
+            color: var(--secondary-color);
+        }
+
+        .team-designation {
+            font-size: 1rem;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .team-bio {
+            display: none;
+        }
+
+
+
+        /* CTA Section */
+        .team-cta {
+            text-align: center;
+            margin-top: 80px;
+            padding: 60px 0;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 24px;
+            margin: 80px 20px 0;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .cta-title {
+            font-family: 'Wild Stripe', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-description {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--gradient-accent);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(235, 188, 52, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(235, 188, 52, 0.4);
+        }
+
+        /* Animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes morphShape {
+            0%, 100% {
+                border-radius: 60% 40% 30% 70%;
+                transform: translateY(0px) rotate(0deg) scale(1);
+            }
+            25% {
+                border-radius: 30% 70% 60% 40%;
+                transform: translateY(-20px) rotate(90deg) scale(1.1);
+            }
+            50% {
+                border-radius: 50% 20% 80% 30%;
+                transform: translateY(0px) rotate(180deg) scale(0.9);
+            }
+            75% {
+                border-radius: 80% 20% 40% 60%;
+                transform: translateY(20px) rotate(270deg) scale(1.05);
+            }
+        }
+
+        @keyframes floatIcon {
+            0%, 100% {
+                transform: translateY(0px) scale(1) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) scale(1.2) rotate(10deg);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: rgba(99, 183, 211, 0.8); }
+        }
+
+        @keyframes textGlow {
+            0%, 100% { text-shadow: 0 0 20px rgba(99, 183, 211, 0.3); }
+            50% { text-shadow: 0 0 40px rgba(99, 183, 211, 0.8), 0 0 60px rgba(235, 188, 52, 0.4); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        @keyframes scrollWheel {
+            0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+            50% { transform: translateX(-50%) translateY(10px); opacity: 0.5; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 30px;
+            }
+
+            .team-card.featured {
+                grid-column: span 1;
+            }
+
+            .hero-stats {
+                gap: 30px;
+            }
+
+            .stat-item {
+                min-width: 120px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+.team-hero {
+    padding: 40px 20px;
+}
+
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .team-section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .team-grid {
+                column-count: 1;
+                column-gap: 0;
+            }
+
+            .team-card {
+                max-width: 400px;
+                margin: 0 auto 25px;
+            }
+
+            .team-image-container {
+                width: 92px;
+                height: 92px;
+                top: -36px;
+                border-width: 5px;
+            }
+
+            .team-card.featured .team-image-container {
+                width: 120px;
+                height: 120px;
+                top: -48px;
+                border-width: 6px;
+            }
+
+            .team-cta {
+                margin: 60px 15px 0;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+                margin-top: 30px;
+            }
+
+            .stat-item {
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .hero-scroll-indicator {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+
+            .team-card {
+                margin: 0 10px;
+            }
+
+            .team-content {
+                padding: 25px;
+            }
+
+            .team-name {
+                font-size: 1.4rem;
+            }
+
+            .cta-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-badge {
+                font-size: 14px;
+                padding: 12px 20px;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.3s forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="erickson-header">
+        <div class="erickson-header-container">
+            <div class="erickson-logo">
+                <a href="/">
+                    <img src="erickson.png" alt="Erickson Coaching International">
+                </a>
+            </div>
+            <nav class="erickson-nav">
+                <button class="erickson-menu-toggle" aria-label="Toggle Menu" type="button">
+                    <span class="erickson-menu-icon"></span>
+                </button>
+                <ul class="erickson-menu">
+                    <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="erickson-menu-item-has-children">
+                        <a href="#"><i class="fas fa-graduation-cap"></i> Coaching Programs</a>
+                        <ul class="erickson-submenu">
+                            <li><a href="https://www.erickson.co.in/the-art-and-science-of-coaching.html"><i class="fas fa-certificate"></i> Level 1</a></li>
+                            <li><a href="https://www.erickson.co.in/the-art-and-science-of-coaching-2.html"><i class="fas fa-award"></i> Level 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="erickson-menu-item-has-children">
+                        <a href="#"><i class="fas fa-info-circle"></i> About-us</a>
+                        <ul class="erickson-submenu">
+                            <li><a href="https://www.erickson.co.in/our-team.html"><i class="fas fa-users"></i> Our Team</a></li>
+                            <li><a href="https://erickson.co.in/about-us/"><i class="fas fa-building"></i> About Us</a></li>
+                        </ul>
+                    </li>
+                    <li class="erickson-menu-item-has-children">
+                        <a href="#"><i class="fas fa-folder-open"></i> Resource Center</a>
+                        <ul class="erickson-submenu">
+                            <li><a href="https://www.erickson.co.in/coaching-careers.html"><i class="fas fa-briefcase"></i> Coaching Careers</a></li>
+                            <li><a href="https://www.erickson.co.in/blogs.html"><i class="fas fa-blog"></i> Blogs</a></li>
+                            <li><a href="https://erickson.co.in/glossary.html"><i class="fas fa-spell-check"></i> Glossary</a></li>
+                            <li><a href="https://www.erickson.co.in/metaphor.html"><i class="fas fa-feather-alt"></i> Metaphor Diaries</a></li>
+                            <li><a href="https://erickson.co.in/testimonials.html"><i class="fas fa-quote-left"></i> Testimonials</a></li>
+                <li><a href="https://erickson.co.in/events-new.html"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                        </ul>
+                    </li>
+                    <li class="erickson-contact-button">
+                        <a href="https://erickson.co.in/get-in-touch.html"><i class="fas fa-envelope"></i> Speak to an Advisor</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="team-hero" id="team-hero">
+        <canvas id="hero-canvas" class="hero-canvas"></canvas>
+        <div class="hero-bg-elements">
+            <div class="hero-shape shape-1"></div>
+            <div class="hero-shape shape-2"></div>
+            <div class="hero-shape shape-3"></div>
+            <div class="hero-shape shape-4"></div>
+            <div class="hero-shape shape-5"></div>
+            <div class="hero-icon icon-1"><i class="fas fa-graduation-cap"></i></div>
+            <div class="hero-icon icon-2"><i class="fas fa-users"></i></div>
+            <div class="hero-icon icon-3"><i class="fas fa-lightbulb"></i></div>
+            <div class="hero-icon icon-4"><i class="fas fa-brain"></i></div>
+            <div class="hero-icon icon-5"><i class="fas fa-rocket"></i></div>
+        </div>
+        <div class="hero-content">
+            <span class="hero-badge">Meet Our Team</span>
+            <h1 class="hero-title typewriter" data-text="The Minds Behind Excellence">The Minds Behind Excellence</h1>
+            <p class="hero-subtitle">
+                Our team consists of experienced professionals and is highly committed to providing the best service to our clients.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section" id="team-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Our Amazing Team</span>
+                <h2 class="section-title">Visionaries Shaping Futures</h2>
+                <p class="section-description">
+                    Our extraordinary team of coaches, mentors, and innovators is dedicated to transforming lives and elevating the coaching profession worldwide through unparalleled expertise and passion.
+                </p>
+            </div>
+
+            <div id="team-grid" class="team-grid">
+                <!-- Team members will be loaded dynamically -->
+            </div>
+
+            <!-- CTA Section -->
+            <div class="team-cta">
+                <div class="cta-content">
+                    <h3 class="cta-title">Ready to Join Our Community?</h3>
+                    <p class="cta-description">
+                        Start your coaching journey with the world's most respected coaching education provider.
+                        Transform your career and make a lasting impact.
+                    </p>
+                    <a href="https://www.erickson.co.in/the-art-and-science-of-coaching.html" class="cta-button">
+                        <i class="fas fa-rocket"></i>
+                        Start Your Journey
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="erickson-footer" aria-label="Site Footer">
+        <div class="erickson-footer-container">
+            <div class="erickson-footer-content">
+                <div class="erickson-footer-section">
+                    <div class="erickson-footer-logo">
+                        <img src="erickson.png" alt="Erickson Coaching International" class="erickson-footer-logo-img">
+                    </div>
+                    <p class="erickson-footer-tagline">Transforming lives through Solution-Focused coaching methodology.</p>
+                </div>
+                <div class="erickson-footer-section">
+                    <h3 class="erickson-footer-heading">Coaching Programs</h3>
+                    <ul class="erickson-footer-list">
+                        <li class="erickson-footer-list-item"><a href="https://www.erickson.co.in/the-art-and-science-of-coaching.html" class="erickson-footer-link"><i class="fas fa-chevron-right erickson-footer-icon"></i> Level 1: The Art &amp; Science of Coaching</a></li>
+                        <li class="erickson-footer-list-item"><a href="https://www.erickson.co.in/the-art-and-science-of-coaching-2.html" class="erickson-footer-link"><i class="fas fa-chevron-right erickson-footer-icon"></i> Level 2: Advanced Coaching</a></li>
+                        <li class="erickson-footer-list-item"><a href="https://www.erickson.co.in/upcoming-batches.html" class="erickson-footer-link"><i class="fas fa-chevron-right erickson-footer-icon"></i> Upcoming Batches</a></li>
+                    </ul>
+                </div>
+                <div class="erickson-footer-section">
+                    <h3 class="erickson-footer-heading">Quick Links</h3>
+                    <ul class="erickson-footer-list">
+                        <li class="erickson-footer-list-item"><a href="https://www.erickson.co.in/about-us/" class="erickson-footer-link"><i class="fas fa-chevron-right erickson-footer-icon"></i> About Us</a></li>
+                        <li class="erickson-footer-list-item"><a href="https://www.erickson.co.in/testimonials.html" class="erickson-footer-link"><i class="fas fa-chevron-right erickson-footer-icon"></i> Client Success Stories</a></li>
+                        <li class="erickson-footer-list-item"><a href="https://www.erickson.co.in/blogs" class="erickson-footer-link"><i class="fas fa-chevron-right erickson-footer-icon"></i> Blogs</a></li>
+                        <li class="erickson-footer-list-item"><a href="https://www.erickson.co.in/contact-us.html" class="erickson-footer-link"><i class="fas fa-chevron-right erickson-footer-icon"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="erickson-footer-section">
+                    <h3 class="erickson-footer-heading">Contact Us</h3>
+                    <ul class="erickson-footer-contact">
+                        <li class="erickson-footer-contact-item"><i class="fas fa-phone erickson-footer-contact-icon"></i> +91 7428913561</li>
+                        <li class="erickson-footer-contact-item"><i class="fas fa-envelope erickson-footer-contact-icon"></i> support@erickson.co.in</li>
+                        <li class="erickson-footer-contact-item"><i class="fas fa-map-marker-alt erickson-footer-contact-icon"></i> Gurugram, Haryana, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="erickson-footer-bottom">
+                <p class="erickson-footer-copyright">&copy; 2026 Erickson Coaching India. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="global.js"></script>
+    <script src="our-team.js" type="module"></script>
+
+    <script>
+        // Add loading animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const teamSection = document.querySelector('.team-section');
+            if (teamSection) {
+                teamSection.classList.add('loading');
+            }
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Initialize hero animations
+            initializeHeroAnimations();
+        });
+
+        // Hero Animations
+        function initializeHeroAnimations() {
+            // Particle System
+            const canvas = document.getElementById('hero-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let animationId;
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
+            function createParticles() {
+                particles = [];
+                const particleCount = Math.min(100, Math.floor(window.innerWidth / 10));
+
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        vx: (Math.random() - 0.5) * 0.5,
+                        vy: (Math.random() - 0.5) * 0.5,
+                        size: Math.random() * 3 + 1,
+                        opacity: Math.random() * 0.5 + 0.2
+                    });
+                }
+            }
+
+            function updateParticles() {
+                particles.forEach(particle => {
+                    particle.x += particle.vx;
+                    particle.y += particle.vy;
+
+                    if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
+                    if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+                });
+            }
+
+            function drawParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(particle => {
+                    ctx.beginPath();
+                    ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 255, 255, ${particle.opacity})`;
+                    ctx.fill();
+                });
+            }
+
+            function animateParticles() {
+                updateParticles();
+                drawParticles();
+                animationId = requestAnimationFrame(animateParticles);
+            }
+
+            // Counter Animation
+            function animateCounters() {
+                const counters = document.querySelectorAll('.stat-number');
+
+                counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const duration = 2000; // 2 seconds
+                    const step = target / (duration / 16); // 60fps
+                    let current = 0;
+
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            counter.textContent = target.toLocaleString();
+                            clearInterval(timer);
+                        } else {
+                            counter.textContent = Math.floor(current).toLocaleString();
+                        }
+                    }, 16);
+                });
+            }
+
+            // Mouse interaction
+            let mouseX = 0, mouseY = 0;
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+
+                // Parallax effect on shapes
+                const shapes = document.querySelectorAll('.hero-shape');
+                shapes.forEach((shape, index) => {
+                    const speed = (index + 1) * 0.01;
+                    const x = (mouseX - window.innerWidth / 2) * speed;
+                    const y = (mouseY - window.innerHeight / 2) * speed;
+                    shape.style.transform = `translate(${x}px, ${y}px)`;
+                });
+            });
+
+            // Initialize
+            resizeCanvas();
+            createParticles();
+            animateParticles();
+            animateCounters();
+
+            // Handle resize
+            window.addEventListener('resize', () => {
+                resizeCanvas();
+                createParticles();
+            });
+
+            // Cleanup on page unload
+            window.addEventListener('beforeunload', () => {
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '915098220958914');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=915098220958914&ev=PageView&noscript=1"
+/>
+</noscript>
+<!-- End Meta Pixel Code -->
+
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://www.erickson.co.in/wp-content/uploads/2025/12/favicon.png" sizes="96x96" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs | Erickson Coaching International</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Wildstripe Font -->
+    <style>
+        @font-face {
+            font-family: 'Wildstripe';
+            src: url('Wildstripe.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="blogs.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="erickson-header">
+      <div class="erickson-header-container">
+        <div class="erickson-logo">
+          <a href="/">
+            <img src="erickson.png" alt="Erickson Coaching International">
+          </a>
+        </div>
+        <nav class="erickson-nav">
+          <button class="erickson-menu-toggle" aria-label="Toggle Menu" type="button">
+            <span class="erickson-menu-icon"></span>
+          </button>
+          <ul class="erickson-menu">
+            <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+            <li class="erickson-menu-item-has-children">
+              <a href="#"><i class="fas fa-graduation-cap"></i> Coaching Programs</a>
+              <ul class="erickson-submenu">
+                <li><a href="https://www.erickson.co.in/the-art-and-science-of-coaching.html"><i class="fas fa-certificate"></i> Level 1</a></li>
+                <li><a href="https://www.erickson.co.in/the-art-and-science-of-coaching-2.html"><i class="fas fa-award"></i> Level 2</a></li>
+              </ul>
+            </li>
+            <li class="erickson-menu-item-has-children">
+              <a href="#"><i class="fas fa-info-circle"></i> About-us</a>
+              <ul class="erickson-submenu">
+                <li><a href="https://www.erickson.co.in/our-team.html"><i class="fas fa-users"></i> Our Team</a></li>
+                <li><a href="https://erickson.co.in/about-us/"><i class="fas fa-building"></i> About Us</a></li>
+              </ul>
+            </li>
+            <li class="erickson-menu-item-has-children">
+              <a href="#"><i class="fas fa-folder-open"></i> Resource Center</a>
+              <ul class="erickson-submenu">
+                <li><a href="https://www.erickson.co.in/coaching-careers.html"><i class="fas fa-briefcase"></i> Coaching Careers</a></li>
+                <li><a href="https://www.erickson.co.in/blogs.html"><i class="fas fa-blog"></i> Blogs</a></li>
+                <li><a href="https://erickson.co.in/glossary.html"><i class="fas fa-spell-check"></i> Glossary</a></li>
+                <li><a href="https://www.erickson.co.in/metaphor.html"><i class="fas fa-feather-alt"></i> Metaphor Diaries</a></li>
+                <li><a href="https://erickson.co.in/testimonials.html"><i class="fas fa-quote-left"></i> Testimonials</a></li>
+                <li><a href="https://erickson.co.in/events-new.html"><i class="fas fa-calendar-alt"></i> Events</a></li>
+              </ul>
+            </li>
+            
+            <li class="erickson-contact-button">
+              <a href="https://erickson.co.in/get-in-touch.html"><i class="fas fa-envelope"></i> Speak to an Advisor</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="blogs-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Insights & Perspectives</h1>
+                <p>Discover the latest thoughts, research, and insights from Erickson Coaching International India's team of experts</p>
+
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <div class="search-wrapper">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="blog-search" placeholder="Search articles..." class="search-input">
+                        <button class="search-clear" id="search-clear" style="display: none;">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="category-filters-container">
+                    <!-- Desktop Category Buttons -->
+                    <div id="category-filters-desktop" class="category-filters-desktop">
+                        <!-- Categories will be loaded here via JavaScript -->
+                    </div>
+
+                    <!-- Mobile Category Selector -->
+                    <div class="category-filters-mobile">
+                        <select id="category-filters-mobile" class="category-select">
+                            <!-- Categories will be loaded here via JavaScript -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="blog-posts">
+        <div class="container">
+            <!-- Loading State -->
+            <div id="loading-state" class="loading-state">
+                <div class="loading-spinner"></div>
+                <p>Loading articles...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="error-state" class="error-state" style="display: none;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Unable to load articles</h3>
+                <p>Please try again later or check your internet connection.</p>
+                <button class="retry-btn" onclick="loadBlogPosts()" type="button">Retry</button>
+            </div>
+
+            <!-- No Results State -->
+            <div id="no-results" class="no-results" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No articles found</h3>
+                <p>Try adjusting your search terms, changing categories, or browse all articles.</p>
+                <div class="no-results-actions">
+                    <button class="retry-btn" onclick="clearSearch()" type="button">Clear Search</button>
+                    <button class="retry-btn" onclick="clearCategoryFilters()" type="button">Show All Categories</button>
+                </div>
+            </div>
+
+            <!-- Blog Posts Container -->
+            <div id="blog-posts-container" class="blog-posts-grid">
+                <!-- Posts will be loaded here via JavaScript -->
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-container">
+                <button id="load-more-btn" class="load-more-btn" style="display: none;" type="button">
+                    <span>Load More Articles</span>
+                    <i class="fas fa-arrow-down"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="erickson-footer">
+        <div class="erickson-footer-container">
+            <div class="erickson-footer-content">
+                <div class="erickson-footer-section">
+                    <div class="erickson-footer-logo">
+                        <img src="erickson.png" alt="Erickson Coaching International" class="erickson-footer-logo-img">
+                    </div>
+                    <p class="erickson-footer-tagline">Transforming lives through Solution-Focused coaching methodology.</p>
+                </div>
+                <div class="erickson-footer-section">
+                    <h3 class="erickson-footer-heading">Coaching Programs</h3>
+                    <ul class="erickson-footer-list">
+                        <li class="erickson-footer-list-item"><a href="https://www.erickson.co.in/the-art-and-science-of-coaching.html" class="erickson-footer-link"><i class="fas fa-chevron-right erickson-footer-icon"></i> Level 1: The Art &amp; Science of Coaching</a></li>
+                        <li class="erickson-footer-list-item"><a href="https://www.erickson.co.in/the-art-and-science-of-coaching-2.html" class="erickson-footer-link"><i class="fas fa-chevron-right erickson-footer-icon"></i> Level 2: Advanced Coaching</a></li>
+                        <li class="erickson-footer-list-item"><a href="https://www.erickson.co.in/upcoming-batches.html" class="erickson-footer-link"><i class="fas fa-chevron-right erickson-footer-icon"></i> Upcoming Batches</a></li>
+                    </ul>
+                </div>
+                <div class="erickson-footer-section">
+                    <h3 class="erickson-footer-heading">Quick Links</h3>
+                    <ul class="erickson-footer-list">
+                        <li class="erickson-footer-list-item"><a href="https://www.erickson.co.in/about-us/" class="erickson-footer-link"><i class="fas fa-chevron-right erickson-footer-icon"></i> About Us</a></li>
+                        <li class="erickson-footer-list-item"><a href="https://www.erickson.co.in/testimonials.html" class="erickson-footer-link"><i class="fas fa-chevron-right erickson-footer-icon"></i> Client Success Stories</a></li>
+                        <li class="erickson-footer-list-item"><a href="https://www.erickson.co.in/blogs" class="erickson-footer-link active"><i class="fas fa-chevron-right erickson-footer-icon"></i> Blogs</a></li>
+                        <li class="erickson-footer-list-item"><a href="https://www.erickson.co.in/contact-us.html" class="erickson-footer-link"><i class="fas fa-chevron-right erickson-footer-icon"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="erickson-footer-section">
+                    <h3 class="erickson-footer-heading">Contact Us</h3>
+                    <ul class="erickson-footer-contact">
+                        <li class="erickson-footer-contact-item"><i class="fas fa-phone erickson-footer-contact-icon"></i> +91 7428913561</li>
+                        <li class="erickson-footer-contact-item"><i class="fas fa-envelope erickson-footer-contact-icon"></i> support@erickson.co.in</li>
+                        <li class="erickson-footer-contact-item"><i class="fas fa-map-marker-alt erickson-footer-contact-icon"></i> Gurugram, Haryana, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="erickson-footer-bottom">
+                <p class="erickson-footer-copyright">&copy; 2026 Erickson Coaching India. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="global.js"></script>
+    <script src="blogs.js"></script>
+</body>
+</html>

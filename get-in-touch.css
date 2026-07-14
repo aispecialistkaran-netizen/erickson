@@ -1,0 +1,19 @@
+.erickson-hero-sectionx {
+    background: url('speak-to.png') no-repeat top center/cover !important;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-right: 5vw;
+    padding-left: 5vw;
+}
+.erickson-hero-titlex {
+    font-size: 4.5rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    text-align: center;
+    font-family: 'Montserrat', Arial, sans-serif;
+    width: 100%;
+    color: #63b7d3;
+}

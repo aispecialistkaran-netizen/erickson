@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '915098220958914');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=915098220958914&ev=PageView&noscript=1"
+/>
+</noscript>
+<!-- End Meta Pixel Code -->
+
+  <meta charset="UTF-8">
+  <link rel="icon" href="https://www.erickson.co.in/wp-content/uploads/2025/12/favicon.png" sizes="96x96" type="image/png">
+  <title>YouTube Latest Videos (No Shorts)</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #111;
+      color: #fff;
+      padding: 20px;
+    }
+    .video {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      background: #1a1a1a;
+    }
+    a {
+      color: #4ea3ff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Latest Videos (Excluding Shorts)</h2>
+<div id="videos"></div>
+
+<script>
+  const RSS_URL = "https://www.youtube.com/feeds/videos.xml?channel_id=UCHsytOG-7i57hrSwB7fNkcw";
+
+  async function loadVideos() {
+    const res = await fetch(RSS_URL);
+    const text = await res.text();
+
+    const parser = new DOMParser();
+    const xml = parser.parseFromString(text, "text/xml");
+
+    const entries = Array.from(xml.querySelectorAll("entry"));
+
+    // FILTER OUT SHORTS BASED ON URL PATTERN
+    const normalVideos = entries.filter(entry => {
+      const link = entry.querySelector("link").getAttribute("href");
+      return link.includes("/watch?v="); // not a short
+    });
+
+    const container = document.getElementById("videos");
+    container.innerHTML = "";
+
+    normalVideos.forEach(entry => {
+      const title = entry.querySelector("title").textContent;
+      const link = entry.querySelector("link").getAttribute("href");
+
+      const div = document.createElement("div");
+      div.className = "video";
+      div.innerHTML = `
+        <h3>${title}</h3>
+        <a href="${link}" target="_blank">${link}</a>
+      `;
+      container.appendChild(div);
+    });
+  }
+
+  loadVideos();
+</script>
+
+</body>
+</html>

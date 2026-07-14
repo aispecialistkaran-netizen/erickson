@@ -1,0 +1,140 @@
+/* CSS: Level badge (core) */
+:root{
+  --badge-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --badge-size: 44px;            /* height */
+  --badge-radius: 999px;        /* pill */
+  --badge-padding-x: 14px;
+  --badge-font-size: 14px;
+  --badge-weight: 600;
+  --shadow: 0 6px 18px rgba(11,22,50,0.12);
+  --glow: 0 0 18px rgba(0,0,0,0.06);
+}
+
+/* Base badge style */
+.level-badge{
+  display: inline-flex;
+  align-items: center;
+  height: var(--badge-size);
+  line-height: 1;
+  border-radius: var(--badge-radius);
+  padding: 0 var(--badge-padding-x);
+  font-family: var(--badge-font);
+  font-weight: var(--badge-weight);
+  font-size: var(--badge-font-size);
+  color: white;
+  box-shadow: var(--shadow);
+  user-select: none;
+  white-space: nowrap;
+  gap: 10px;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  transform-origin: center;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+/* subtle hover / focus pop */
+.level-badge:hover,
+.level-badge:focus {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 14px 30px rgba(11,22,50,0.16);
+  outline: none;
+}
+
+/* tiny shine animation overlay */
+.level-badge::after{
+  content: "";
+  position: absolute;
+  left: -40%;
+  top: -30%;
+  width: 60%;
+  height: 160%;
+  transform: rotate(-18deg);
+  background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.16), rgba(255,255,255,0.06));
+  filter: blur(6px);
+  opacity: 0;
+  transition: opacity .25s ease, left 1.2s cubic-bezier(.2,.9,.2,1);
+  pointer-events: none;
+  border-radius: 6px;
+}
+
+/* animate shine on hover */
+.level-badge:hover::after,
+.level-badge:focus::after{
+  opacity: 1;
+  left: 140%;
+}
+
+/* numeric / icon circle (optional small dot) */
+.level-badge .lb-dot{
+  display:inline-grid;
+  place-items:center;
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  font-size:12px;
+  font-weight:700;
+  box-shadow: var(--glow);
+}
+
+/* ---- themes per level ----
+   You can add .level-2/.level-3 etc reusing the same pattern.
+*/
+
+/* Level 1: energetic green -> teal */
+.level-badge.level-1{
+  background: linear-gradient(135deg,#16a085,#1abc9c);
+}
+.level-badge.level-1 .lb-dot{ background: rgba(255,255,255,0.14); color: #fff; }
+
+/* Example: Level 2 (gold) */
+.level-badge.level-2{
+  background: linear-gradient(135deg,#f6b93b,#f39c12);
+}
+.level-badge.level-2 .lb-dot{ background: rgba(255,255,255,0.14); color: #2d1f00; }
+
+/* Example: Level 3 (violet) */
+.level-badge.level-3{
+  background: linear-gradient(135deg,#8e44ad,#6a1b9a);
+}
+.level-badge.level-3 .lb-dot{ background: rgba(255,255,255,0.12); color: #fff; }
+
+/* compact / small variant */
+.level-badge.small{
+  --badge-size: 30px;
+  --badge-font-size: 12px;
+  --badge-padding-x: 8px;
+}
+
+/* large / pill variant */
+.level-badge.large{
+  --badge-size: 56px;
+  --badge-font-size: 16px;
+  --badge-padding-x: 18px;
+}
+
+/* accessible focus ring for keyboard users */
+.level-badge:focus-visible{
+  box-shadow: 0 0 0 4px rgba(26,188,156,0.12), 0 10px 30px rgba(11,22,50,0.16);
+}
+
+/* optional pulse for 'active' badges */
+.level-badge.pulse::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 rgba(255,255,255,0.06);
+  animation: pulse 1.8s infinite;
+  pointer-events: none;
+  opacity: 0.7;
+}
+@keyframes pulse{
+  0%{ transform: scale(1); opacity: 0.7;}
+  50%{ transform: scale(1.08); opacity: 0.18;}
+  100%{ transform: scale(1); opacity: 0.7;}
+}
+
+/* print-friendly fallback */
+@media print{
+  .level-badge{ box-shadow:none; color:#000; -webkit-print-color-adjust:exact; }
+}

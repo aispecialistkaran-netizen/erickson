@@ -1,0 +1,265 @@
+/* Erickson Introduction Section */
+.erickson-intro-section {
+    position: relative;
+    padding: 100px 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('Marliyn Atkinson Weskite Banner.jpg');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: scroll;
+    color: white;
+    overflow: hidden;
+}
+
+.intro-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.intro-bg-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(235, 188, 52, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(232, 135, 85, 0.1) 0%, transparent 50%);
+    z-index: 2;
+}
+
+.erickson-intro-section .container {
+    position: relative;
+    z-index: 3;
+}
+
+.intro-content {
+    max-width: 1200px;
+    margin: 0;
+    padding-left: 50px;
+}
+
+.intro-text-content {
+    text-align: left;
+    max-width: 800px;
+}
+
+.intro-header {
+    margin-bottom: 40px;
+}
+
+.intro-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #EBBC34, #E88755);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(235, 188, 52, 0.3);
+}
+
+.intro-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 20px 0;
+    background: linear-gradient(135deg, #ffffff, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); */
+}
+
+.intro-title-accent {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #EBBC34, #E88755);
+    border-radius: 2px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(235, 188, 52, 0.4);
+}
+
+.intro-description {
+    margin-bottom: 50px;
+}
+
+.intro-paragraph {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    color: #f0f8ff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.intro-paragraph strong {
+    color: #EBBC34;
+    font-weight: 700;
+}
+
+.intro-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.highlight-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #EBBC34, #E88755);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 20px rgba(235, 188, 52, 0.3);
+}
+
+.highlight-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.highlight-content h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: white;
+}
+
+.highlight-content p {
+    font-size: 0.95rem;
+    color: #e0f2ff;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .erickson-intro-section {
+        padding: 60px 0;
+    }
+    
+    .intro-content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .intro-title {
+        font-size: 2.5rem;
+    }
+    
+    .intro-paragraph {
+        font-size: 1rem;
+    }
+    
+    .intro-highlights {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .highlight-item {
+        padding: 20px;
+    }
+    
+    .highlight-icon {
+        width: 50px;
+        height: 50px;
+        margin-right: 15px;
+    }
+    
+    .highlight-icon i {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .erickson-intro-section {
+        padding: 40px 0;
+    }
+    
+    .intro-title {
+        font-size: 2rem;
+    }
+    
+    .intro-badge {
+        font-size: 12px;
+        padding: 6px 16px;
+    }
+    
+    .highlight-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 15px;
+    }
+    
+    .highlight-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+}
+
+/* Animation Effects */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.intro-header,
+.intro-description,
+.intro-highlights {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.intro-description {
+    animation-delay: 0.2s;
+}
+
+.intro-highlights {
+    animation-delay: 0.4s;
+}
+
+.highlight-item:nth-child(1) {
+    animation-delay: 0.6s;
+}
+
+.highlight-item:nth-child(2) {
+    animation-delay: 0.7s;
+}
+
+.highlight-item:nth-child(3) {
+    animation-delay: 0.8s;
+}

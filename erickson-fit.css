@@ -1,0 +1,167 @@
+/* Is Erickson Right For You - Modern Crystal Mesh UI */
+
+.erickson-fit-section {
+    padding: 120px 0;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 1. MESH BACKGROUND (VIBRANT & AWWWARDS STYLE) */
+.fit-mesh-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(235, 188, 52, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(99, 183, 211, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(232, 135, 85, 0.05) 0%, transparent 60%);
+    z-index: 1;
+}
+
+.fit-pattern-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(7, 63, 82, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+    z-index: 2;
+}
+
+.erickson-fit-section .container {
+    position: relative;
+    z-index: 10;
+}
+
+.fit-content-wrapper {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+}
+
+/* 2. LEFT SIDE */
+.fit-left {
+    flex: 0 0 40%;
+}
+
+.fit-badge {
+    color: #073F52;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+    display: block;
+}
+
+.fit-title {
+    font-family: 'Wildstripe', sans-serif;
+    font-size: 4rem;
+    line-height: 1.1;
+    color: #073F52;
+    margin-bottom: 30px;
+}
+
+.fit-title span {
+    color: #63B7D3;
+    display: block;
+}
+
+.fit-intro {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* 3. RIGHT SIDE (GRID) */
+.fit-right {
+    flex: 0 0 55%;
+}
+
+.fit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.fit-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 35px;
+    border-radius: 24px;
+    box-shadow: 0 15px 40px rgba(7, 63, 82, 0.04);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fit-card:hover {
+    transform: translateY(-10px);
+    background: #ffffff;
+    box-shadow: 0 30px 70px rgba(7, 63, 82, 0.08);
+    border-color: #63B7D3;
+}
+
+.fit-check {
+    width: 45px;
+    height: 45px;
+    background: #073F52;
+    color: #EBBC34;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    transition: all 0.4s ease;
+}
+
+.fit-card:hover .fit-check {
+    background: #EBBC34;
+    color: #073F52;
+    transform: scale(1.1);
+}
+
+.fit-card p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #444;
+}
+
+.fit-card p strong {
+    color: #073F52;
+    font-weight: 700;
+}
+
+.fit-accent-blue {
+    color: #63B7D3;
+    font-weight: 800;
+}
+
+.fit-accent-gold {
+    color: #EBBC34;
+    font-weight: 800;
+}
+
+.fit-accent-coral {
+    color: #E88755;
+    font-weight: 800;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+    .fit-content-wrapper { flex-direction: column; text-align: center; gap: 60px; }
+    .fit-left, .fit-right { flex: 0 0 100%; width: 100%; }
+    .fit-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+    .fit-title { font-size: 3rem; }
+    .fit-grid { grid-template-columns: 1fr; }
+    .fit-card { padding: 30px; }
+}
