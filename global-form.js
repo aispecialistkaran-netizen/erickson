@@ -1,7 +1,27 @@
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { getFirestore, collection, addDoc, serverTimestamp } from "firebase/firestore";
+
 (function () {
   // Ensure the script only runs once
   if (window.__xmonksFormInitialized) return;
   window.__xmonksFormInitialized = true;
+
+  // Firebase Config
+  const firebaseConfig = {
+    apiKey: "AIzaSyC8nW0CAFgqLwvk481WNuMSfLUfqpT3Vps",
+    authDomain: "erickson-f7954.firebaseapp.com",
+    projectId: "erickson-f7954",
+    storageBucket: "erickson-f7954.firebasestorage.app",
+    messagingSenderId: "76152124770",
+    appId: "1:76152124770:web:21c39dfc6156adb33ae83b",
+    measurementId: "G-RWTHJ5ZFDM"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const db = getFirestore(app);
 
   // Add FontAwesome for icons if not already present
   if (!document.getElementById('font-awesome-css')) {
@@ -42,18 +62,18 @@
 
     /* Modal Wrapper */
     .xm-modal-wrapper {
-      background: #fff;
+      background: #ffffff;
       width: 95%;
-      max-width: 1050px;
+      max-width: 1080px;
       border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
       position: relative;
       transform: scale(0.95) translateY(20px);
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: row;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     .xm-modal-backdrop.active .xm-modal-wrapper {
@@ -62,10 +82,9 @@
 
     /* Left Section - Info Panel */
     .xm-info-panel {
-      width: 55%;
-      background: linear-gradient(135deg, #075985 0%, #0369a1 40%, #0284c7 100%);
-      color: #fff;
-      padding: 35px 35px 0 35px;
+      width: 60%;
+      background: #ffffff;
+      color: #0f172a;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -73,288 +92,352 @@
       overflow: hidden;
     }
 
-    /* Background pattern shapes */
-    .xm-info-panel::before {
-      content: '';
-      position: absolute;
-      top: -10%;
-      right: -10%;
-      width: 300px;
-      height: 300px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .xm-info-panel-content {
+    .xm-info-content {
       position: relative;
-      z-index: 2;
+      z-index: 3;
+      padding: 35px 35px 20px 35px;
+      max-width: 58%;
     }
 
-    .xm-badge {
+    /* Slanted Orange Ribbon Badge */
+    .xm-badge-ribbon {
       display: inline-block;
-      background: #f97316;
-      color: #fff;
+      background: #ea580c;
+      color: #ffffff;
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 4px;
-      margin-bottom: 20px;
+      padding: 6px 18px 6px 12px;
+      margin-bottom: 16px;
       letter-spacing: 0.5px;
+      clip-path: polygon(0 0, 94% 0, 100% 100%, 0 100%);
     }
 
     .xm-title {
-      font-size: 32px;
+      font-size: 34px;
       font-weight: 800;
-      line-height: 1.2;
-      margin: 0 0 8px 0;
-      color: #ffffff;
+      line-height: 1.15;
+      margin: 0 0 2px 0;
+      color: #0f172a;
     }
 
     .xm-subtitle {
-      font-size: 16px;
-      color: #e0f2fe;
-      margin: 0 0 30px 0;
-      font-weight: 500;
+      font-size: 26px;
+      font-weight: 700;
+      color: #ea580c;
+      margin: 0 0 6px 0;
+    }
+
+    .xm-tagline {
+      font-size: 15px;
+      font-weight: 600;
+      color: #0284c7;
+      margin: 0 0 22px 0;
     }
 
     /* Features Row */
     .xm-features-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-bottom: 30px;
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
     }
 
     .xm-feature-card {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 12px;
-      padding: 12px 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      transition: all 0.3s ease;
+      width: 85px;
     }
 
-    .xm-feature-card i {
-      font-size: 18px;
-      color: #38bdf8;
-      margin-bottom: 8px;
+    .xm-feature-icon-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 6px;
+      color: #ffffff;
+      font-size: 16px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
     }
+
+    .xm-feature-icon-circle.teal { background: #0284c7; }
+    .xm-feature-icon-circle.orange { background: #ea580c; }
+    .xm-feature-icon-circle.gold { background: #eab308; }
 
     .xm-feature-text {
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 700;
+      color: #0f172a;
       text-transform: uppercase;
-      letter-spacing: 0.3px;
       line-height: 1.3;
     }
 
     /* Parts Grid */
     .xm-parts-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 30px;
+      display: flex;
+      gap: 12px;
+      margin-bottom: 10px;
+      max-width: 380px;
     }
 
     .xm-part-box {
+      flex: 1;
       background: #ffffff;
-      border-radius: 14px;
-      padding: 15px;
-      color: #0f172a;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
       position: relative;
-    }
-
-    .xm-part-header {
-      display: inline-block;
-      background: #0284c7;
-      color: #ffffff;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 3px 12px;
-      border-radius: 20px;
-      margin-bottom: 10px;
-    }
-
-    .xm-part-header.part2 {
-      background: #f97316;
-    }
-
-    .xm-part-date-wrapper {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-    }
-
-    .xm-part-date-wrapper i {
-      color: #0284c7;
-      margin-top: 2px;
-      font-size: 14px;
-    }
-
-    .xm-part-date {
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 1.4;
-      color: #334155;
-    }
-
-    /* Core Points Banner */
-    .xm-points-section {
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-      padding-top: 20px;
-      margin-bottom: 25px;
-    }
-
-    .xm-points-header {
-      font-size: 11px;
-      font-weight: 800;
-      color: #38bdf8;
-      letter-spacing: 0.5px;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-    }
-
-    .xm-points-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .xm-point-item {
+      padding: 14px 10px 10px 10px;
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 11px;
-      font-weight: 600;
-      color: #e2e8f0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
     }
 
-    .xm-point-item i {
-      color: #38bdf8;
-      font-size: 10px;
+    .xm-part-header {
+      position: absolute;
+      top: -9px;
+      left: 10px;
+      font-size: 9px;
+      font-weight: 800;
+      color: #ffffff;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: #0284c7;
+      letter-spacing: 0.3px;
+    }
+
+    .xm-part-header.part2 {
+      background: #ea580c;
+    }
+
+    .xm-part-icon {
+      font-size: 16px;
+    }
+    .xm-part-icon.teal { color: #0284c7; }
+    .xm-part-icon.orange { color: #ea580c; }
+
+    .xm-part-date {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #334155;
+      line-height: 1.3;
+    }
+
+    /* Curved Divider & BG Panel */
+    .xm-info-curve {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 46%;
+      height: 100%;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      border-left: 4px solid #0284c7;
+      border-radius: 140% 0 0 140% / 100% 0 0 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Woman Photo */
+    .xm-info-woman {
+      position: absolute;
+      bottom: 80px;
+      right: -2%;
+      width: 44%;
+      height: auto;
+      z-index: 2;
+      pointer-events: none;
     }
 
     /* Golden Award Badge */
     .xm-award-badge {
+      position: absolute;
+      bottom: 55px;
+      right: 34%;
+      background: #ffffff;
+      border: 3px double #d97706;
+      border-radius: 50%;
+      width: 115px;
+      height: 115px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      z-index: 10;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: #ffffff;
-      border: 3px solid #eab308;
-      color: #1e293b;
-      border-radius: 50%;
-      width: 110px;
-      height: 110px;
-      margin: 0 auto -20px auto;
+      padding: 6px;
+      box-sizing: border-box;
       text-align: center;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-      z-index: 10;
-      position: relative;
+      line-height: 1.15;
     }
 
     .xm-award-year {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 800;
-      color: #854d0e;
+      color: #b45309;
+      margin-bottom: 1px;
     }
 
-    .xm-award-title {
-      font-size: 9px;
+    .xm-award-title1 {
+      font-size: 7.5px;
       font-weight: 800;
+      color: #b45309;
       text-transform: uppercase;
-      line-height: 1.1;
-      letter-spacing: 0.2px;
-      color: #eab308;
-      margin: 2px 0;
+      letter-spacing: 0.3px;
+    }
+
+    .xm-award-title2 {
+      font-size: 12px;
+      font-weight: 900;
+      color: #d97706;
+      text-transform: uppercase;
+      margin: 1px 0;
     }
 
     .xm-award-desc {
-      font-size: 8px;
+      font-size: 7.5px;
       font-weight: 700;
       color: #64748b;
+      text-transform: uppercase;
     }
 
     .xm-award-icf {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 900;
-      color: #0369a1;
+      color: #0284c7;
       margin-top: 1px;
     }
 
-    /* Info Gold Banner */
-    .xm-info-footer-banner {
-      background: #fef08a;
-      color: #854d0e;
-      font-size: 11px;
-      font-weight: 700;
+    /* Bottom Teal Tagline Panel */
+    .xm-bottom-teal-panel {
+      background: #005d73;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 3;
+      position: relative;
+    }
+
+    .xm-teal-left {
+      font-size: 10.5px;
+      font-weight: 800;
+      line-height: 1.3;
+      letter-spacing: 0.3px;
+      color: #ffffff;
+    }
+
+    .xm-teal-left span {
+      color: #fcd34d;
+    }
+
+    .xm-teal-right {
+      display: flex;
+      gap: 12px;
+    }
+
+    .xm-teal-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      padding: 12px 20px;
-      margin: 0 -35px;
+      width: 65px;
+    }
+
+    .xm-teal-icon {
+      font-size: 13px;
+      color: #ffffff;
+      margin-bottom: 3px;
+    }
+
+    .xm-teal-text {
+      font-size: 7.5px;
+      font-weight: 500;
+      color: #e2e8f0;
+      line-height: 1.25;
+    }
+
+    /* Bottom Gold/Yellow Panel */
+    .xm-bottom-gold-panel {
+      background: #e9b62f;
+      padding: 8px 15px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      border-top: 1px solid #fef9c3;
+      z-index: 3;
+      position: relative;
+    }
+
+    .xm-gold-icon {
+      color: #0f172a;
+      font-size: 12px;
+    }
+
+    .xm-gold-text {
+      font-size: 10px;
+      font-weight: 700;
+      color: #0f172a;
+      text-align: center;
     }
 
     /* Right Section - Form Panel */
     .xm-form-panel {
-      width: 45%;
-      padding: 40px;
+      width: 40%;
+      padding: 30px;
       background: #ffffff;
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      z-index: 5;
     }
 
     /* Close Button */
     .xm-modal-close-btn {
       position: absolute;
-      top: 20px;
-      right: 20px;
-      background: #f1f5f9;
-      border: none;
-      width: 36px;
-      height: 36px;
+      top: 15px;
+      right: 15px;
+      background: #ffffff;
+      border: 1.5px solid #0f172a;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      color: #64748b;
-      font-size: 18px;
+      color: #0f172a;
+      font-size: 12px;
       transition: all 0.2s ease;
       z-index: 10;
     }
 
     .xm-modal-close-btn:hover {
-      background: #e2e8f0;
-      color: #0f172a;
+      background: #0f172a;
+      color: #ffffff;
       transform: rotate(90deg);
     }
 
     .xm-form-header {
       text-align: center;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
     .xm-form-title {
-      font-size: 28px;
+      font-size: 26px;
       font-weight: 800;
-      color: #0369a1;
-      margin: 0 0 6px 0;
+      color: #075985;
+      margin: 0 0 4px 0;
     }
 
     .xm-form-subtitle {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
-      color: #f97316;
-      margin: 0 0 12px 0;
+      color: #ea580c;
+      margin: 0;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -368,26 +451,26 @@
     }
 
     .xm-dot {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
     }
-    .xm-dot-1 { background: #38bdf8; }
-    .xm-dot-2 { background: #f97316; }
-    .xm-dot-3 { background: #fcd34d; }
+    .xm-dot-1 { background: #0284c7; }
+    .xm-dot-2 { background: #ea580c; }
+    .xm-dot-3 { background: #eab308; }
 
     /* Inputs Styling */
     .xm-input-group {
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       position: relative;
     }
 
     .xm-input-label {
       display: block;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
       color: #1e293b;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .xm-input-label span {
@@ -400,56 +483,56 @@
 
     .xm-input-icon {
       position: absolute;
-      left: 14px;
+      left: 12px;
       top: 50%;
       transform: translateY(-50%);
       color: #64748b;
-      font-size: 14px;
+      font-size: 13px;
       pointer-events: none;
     }
 
     .xm-input {
       width: 100%;
-      padding: 12px 14px 12px 38px;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 10px;
-      font-size: 14px;
+      padding: 10px 12px 10px 34px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 13px;
       color: #0f172a;
-      background: #f8fafc;
+      background: #ffffff;
       outline: none;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
       box-sizing: border-box;
     }
 
     .xm-input:focus {
       border-color: #0284c7;
       background: #ffffff;
-      box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15);
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
     }
 
     /* Submit Button */
     .xm-submit-btn {
       width: 100%;
-      background: #f97316;
+      background: #ea580c;
       color: #ffffff;
       border: none;
-      padding: 14px;
-      border-radius: 10px;
-      font-size: 16px;
-      font-weight: 700;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 800;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      transition: all 0.3s ease;
-      margin-top: 24px;
-      box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.2);
+      gap: 8px;
+      transition: all 0.2s ease;
+      margin-top: 18px;
+      box-shadow: 0 4px 6px -1px rgba(234, 88, 12, 0.2);
     }
 
     .xm-submit-btn:hover {
-      background: #ea580c;
-      box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3);
+      background: #d04a07;
+      box-shadow: 0 8px 12px -3px rgba(234, 88, 12, 0.3);
       transform: translateY(-1px);
     }
 
@@ -470,20 +553,20 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      font-size: 11px;
+      gap: 5px;
+      font-size: 10.5px;
       color: #64748b;
-      margin-top: 15px;
+      margin-top: 12px;
       font-weight: 500;
     }
 
     .xm-form-footer i {
-      font-size: 12px;
+      font-size: 11px;
     }
 
     /* Status Div */
     .xm-form-status {
-      margin-top: 15px;
+      margin-top: 10px;
       font-size: 13px;
       font-weight: 600;
       text-align: center;
@@ -491,7 +574,7 @@
       transition: all 0.3s ease;
     }
 
-    /* Responsive */
+    /* Responsive styling */
     @media (max-width: 900px) {
       .xm-modal-wrapper {
         flex-direction: column;
@@ -501,17 +584,39 @@
       }
       .xm-info-panel {
         width: 100%;
-        padding: 30px 30px 0 30px;
+      }
+      .xm-info-content {
+        max-width: 100%;
+        padding: 30px 25px;
+      }
+      .xm-info-curve {
+        display: none;
+      }
+      .xm-info-woman {
+        display: none;
+      }
+      .xm-award-badge {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin: 15px auto;
+      }
+      .xm-bottom-teal-panel {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+      .xm-teal-right {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .xm-bottom-gold-panel {
+        padding: 10px 15px;
       }
       .xm-form-panel {
         width: 100%;
-        padding: 30px;
-      }
-      .xm-award-badge {
-        margin: 20px auto 20px auto;
-      }
-      .xm-info-footer-banner {
-        margin: 0 -30px;
+        padding: 30px 25px;
+        border-top: 1px solid #cbd5e1;
       }
     }
   `;
@@ -526,23 +631,34 @@
     <div class="xm-modal-wrapper">
       <!-- Left Panel: Info Section -->
       <div class="xm-info-panel">
-        <div class="xm-info-panel-content">
-          <span class="xm-badge">Erickson ICF Certification</span>
-          <h2 class="xm-title">The Art & Science of Coaching (TASC)</h2>
-          <p class="xm-subtitle">Essentials (Part I & II) • ICF Accredited Coach Training</p>
+        <div class="xm-info-curve"></div>
+        <img class="xm-info-woman" src="banner_woman.png" alt="TASC Coach Certification">
+        
+        <div class="xm-info-content">
+          <span class="xm-badge-ribbon">Erickson ICF Certification</span>
+          <h2 class="xm-title">The Art & Science</h2>
+          <h2 class="xm-title">of Coaching (TASC)</h2>
+          <p class="xm-subtitle">Essentials (Part I & II)</p>
+          <p class="xm-tagline">ICF Accredited Coach Training Program</p>
           
           <!-- Features -->
           <div class="xm-features-row">
             <div class="xm-feature-card">
-              <i class="fa-solid fa-desktop"></i>
+              <div class="xm-feature-icon-circle teal">
+                <i class="fa-solid fa-desktop"></i>
+              </div>
               <div class="xm-feature-text">Virtual<br>Live Sessions</div>
             </div>
             <div class="xm-feature-card">
-              <i class="fa-solid fa-calendar-days"></i>
-              <div class="xm-feature-text">Weekend Batches<br>(Sat - Sun)</div>
+              <div class="xm-feature-icon-circle orange">
+                <i class="fa-solid fa-calendar-days"></i>
+              </div>
+              <div class="xm-feature-text">Weekend Batches<br>(Sat – Sun)</div>
             </div>
             <div class="xm-feature-card">
-              <i class="fa-solid fa-award"></i>
+              <div class="xm-feature-icon-circle gold">
+                <i class="fa-solid fa-award"></i>
+              </div>
               <div class="xm-feature-text">ICF Accredited<br>Certification</div>
             </div>
           </div>
@@ -551,44 +667,56 @@
           <div class="xm-parts-grid">
             <div class="xm-part-box">
               <span class="xm-part-header">PART I</span>
-              <div class="xm-part-date-wrapper">
-                <i class="fa-solid fa-calendar-check"></i>
-                <div class="xm-part-date">Sep 17-20 &<br>Sep 24-27, 2026</div>
-              </div>
+              <i class="fa-solid fa-calendar-check xm-part-icon teal"></i>
+              <div class="xm-part-date">Sep 17–20 &<br>Sep 24–27, 2026</div>
             </div>
             <div class="xm-part-box">
               <span class="xm-part-header part2">PART II</span>
-              <div class="xm-part-date-wrapper">
-                <i class="fa-solid fa-calendar-check"></i>
-                <div class="xm-part-date">Oct 8-11 &<br>Oct 15-18, 2026</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Core Points -->
-          <div class="xm-points-section">
-            <div class="xm-points-header">Transform Conversations. Create Lasting Impact.</div>
-            <div class="xm-points-list">
-              <div class="xm-point-item"><i class="fa-solid fa-circle-check"></i> Learn from Master Coaches</div>
-              <div class="xm-point-item"><i class="fa-solid fa-circle-check"></i> Solution-Focused Method</div>
-              <div class="xm-point-item"><i class="fa-solid fa-circle-check"></i> Enhance Leadership Impact</div>
-              <div class="xm-point-item"><i class="fa-solid fa-circle-check"></i> Global ICF Recognition</div>
+              <i class="fa-solid fa-calendar-check xm-part-icon orange"></i>
+              <div class="xm-part-date">Oct 8–11 &<br>Oct 15–18, 2026</div>
             </div>
           </div>
         </div>
 
-        <!-- Award Badge -->
+        <!-- Award Badge overlapping -->
         <div class="xm-award-badge">
           <span class="xm-award-year">2024</span>
-          <span class="xm-award-title">Coaching Impact</span>
+          <span class="xm-award-title1">Coaching</span>
+          <span class="xm-award-title2">Impact</span>
           <span class="xm-award-desc">Award Winner</span>
           <span class="xm-award-icf">ICF</span>
         </div>
 
-        <!-- Footer Yellow Banner -->
-        <div class="xm-info-footer-banner">
-          <i class="fa-solid fa-circle-chevron-right"></i>
-          <span>Begin your journey as a certified coach and unlock your potential.</span>
+        <!-- Bottom Teal Tagline Panel -->
+        <div class="xm-bottom-teal-panel">
+          <div class="xm-teal-left">
+            TRANSFORM CONVERSATIONS.<br>
+            <span>CREATE LASTING IMPACT.</span>
+          </div>
+          <div class="xm-teal-right">
+            <div class="xm-teal-block">
+              <i class="fa-solid fa-users-gear xm-teal-icon"></i>
+              <div class="xm-teal-text">Learn from<br>Master Coaches</div>
+            </div>
+            <div class="xm-teal-block">
+              <i class="fa-solid fa-brain xm-teal-icon"></i>
+              <div class="xm-teal-text">Solution-Focused<br>Methodology</div>
+            </div>
+            <div class="xm-teal-block">
+              <i class="fa-solid fa-arrow-trend-up xm-teal-icon"></i>
+              <div class="xm-teal-text">Enhance<br>Leadership Impact</div>
+            </div>
+            <div class="xm-teal-block">
+              <i class="fa-solid fa-medal xm-teal-icon"></i>
+              <div class="xm-teal-text">Global Recognition<br>by ICF</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Gold Yellow Banner -->
+        <div class="xm-bottom-gold-panel">
+          <i class="fa-solid fa-shield-halved xm-gold-icon"></i>
+          <span class="xm-gold-text">Begin your journey as a certified coach and unlock your potential to create meaningful change.</span>
         </div>
       </div>
 
@@ -651,7 +779,7 @@
 
           <button class="xm-submit-btn" type="submit" id="submit-btn">
             <span>REGISTER NOW</span>
-            <i class="fa-solid fa-chevron-right"></i>
+            <i class="fa-solid fa-angle-right"></i>
           </button>
         </form>
 
@@ -751,27 +879,39 @@
     };
 
     try {
-      const response = await fetch('https://xmonksapi.vercel.app/api/leads', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-API-KEY': 'xm_live_47cyz6ze9211kronqf'
-        },
-        body: JSON.stringify(payload)
+      // Save to Firestore leads collection
+      const docRef = await addDoc(collection(db, "leads"), {
+        ...payload,
+        timestamp: serverTimestamp()
       });
+      console.log("Document written to Firestore with ID: ", docRef.id);
 
-      const data = await response.json();
+      // Submit to webhook, catching errors separately
+      try {
+        const response = await fetch('https://xmonksapi.vercel.app/api/leads', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-API-KEY': 'xm_live_47cyz6ze9211kronqf'
+          },
+          body: JSON.stringify(payload)
+        });
 
-      if (response.ok && data.success) {
-        statusDiv.style.color = '#10b981'; // Green status
-        statusDiv.textContent = 'Inquiry submitted successfully! Thank you.';
-        form.reset(); // Clear form fields
-        
-        // Auto-close modal after 2.5 seconds on success
-        setTimeout(closeModal, 2500);
-      } else {
-        throw new Error(data.error || 'Server rejected lead submission.');
+        const data = await response.json();
+        if (!response.ok || !data.success) {
+          console.warn('Webhook rejected lead submission:', data.error);
+        }
+      } catch (webhookErr) {
+        console.warn('Webhook submission failed, but lead was successfully saved to Firestore:', webhookErr);
       }
+
+      // Success behavior (since it successfully wrote to Firestore)
+      statusDiv.style.color = '#10b981'; // Green status
+      statusDiv.textContent = 'Inquiry submitted successfully! Thank you.';
+      form.reset(); // Clear form fields
+      
+      // Auto-close modal after 2.5 seconds on success
+      setTimeout(closeModal, 2500);
     } catch (err) {
       console.error('Lead submission failure:', err);
       statusDiv.style.color = '#ef4444'; // Red status

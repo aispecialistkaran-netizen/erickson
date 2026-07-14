@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admissions Admin Portal | Erickson ICF Certification</title>
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome for Premium Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Import Map for Firebase Modules -->
+  <script type="importmap">
+    {
+      "imports": {
+        "firebase/app": "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js",
+        "firebase/analytics": "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js",
+        "firebase/firestore": "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-hover: #0369a1;
+      --secondary: #ea580c;
+      --secondary-hover: #d04a07;
+      --background: #f8fafc;
+      --panel-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+
+    /* PASSCODE GATE */
+    .gate-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease, visibility 0.5s;
+    }
+
+    .gate-container.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .gate-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      box-sizing: border-box;
+      animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .gate-icon {
+      font-size: 40px;
+      color: var(--secondary);
+      margin-bottom: 20px;
+    }
+
+    .gate-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0 0 8px 0;
+    }
+
+    .gate-subtitle {
+      font-size: 13px;
+      color: #94a3b8;
+      margin: 0 0 30px 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .passcode-wrapper {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .passcode-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1.5px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 14px 45px 14px 16px;
+      color: #ffffff;
+      font-size: 16px;
+      outline: none;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .passcode-input:focus {
+      border-color: var(--primary);
+      background: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.25);
+    }
+
+    .passcode-toggle {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+      cursor: pointer;
+      font-size: 16px;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .passcode-toggle:hover {
+      color: #ffffff;
+    }
+
+    .gate-btn {
+      width: 100%;
+      background: var(--secondary);
+      color: #ffffff;
+      border: none;
+      padding: 14px;
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .gate-btn:hover {
+      background: var(--secondary-hover);
+      transform: translateY(-1px);
+    }
+
+    .gate-error {
+      color: #ef4444;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 15px;
+      min-height: 20px;
+    }
+
+    /* MAIN DASHBOARD CONTENT */
+    .dashboard-container {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      padding: 30px;
+      max-width: 1280px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .dashboard-container.visible {
+      display: block;
+      opacity: 1;
+    }
+
+    /* Header Panel */
+    .dash-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .dash-title-block h1 {
+      margin: 0 0 4px 0;
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .dash-title-block p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .dash-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 10px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+      outline: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .btn-danger {
+      background: #ef4444;
+      color: #ffffff;
+    }
+
+    .btn-danger:hover {
+      background: #dc2626;
+    }
+
+    /* KPI Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+
+    .stat-card {
+      background: var(--panel-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .stat-info h3 {
+      margin: 0 0 6px 0;
+      font-size: 13px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 700;
+    }
+
+    .stat-value {
+      font-size: 32px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .stat-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .stat-icon.blue {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+
+    .stat-icon.orange {
+      background: #ffedd5;
+      color: #c2410c;
+    }
+
+    .stat-icon.green {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    /* Filters Panel */
+    .filter-card {
+      background: var(--panel-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .filter-group {
+      flex: 1;
+      min-width: 200px;
+      position: relative;
+    }
+
+    .filter-group.search-group {
+      flex: 2;
+    }
+
+    .filter-group i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px 14px 10px 38px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      background-color: var(--background);
+      outline: none;
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+      height: 40px;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      background-color: #ffffff;
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+    }
+
+    select.form-control {
+      padding-left: 14px;
+    }
+
+    /* Leads Table Card */
+    .table-card {
+      background: var(--panel-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+
+    .table-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .table-header h2 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .table-header span {
+      background: #f1f5f9;
+      color: var(--text-muted);
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+      width: 100%;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    th {
+      background: #f8fafc;
+      padding: 14px 24px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+      color: var(--text);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background-color: #f8fafc;
+    }
+
+    .td-lead-name {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .td-lead-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .page-badge {
+      display: inline-block;
+      max-width: 180px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+
+    .date-text {
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .table-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--text-muted);
+      transition: all 0.2s ease;
+      outline: none;
+    }
+
+    .btn-icon:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+      background: #f0f9ff;
+    }
+
+    .btn-icon.delete-btn:hover {
+      color: #ef4444;
+      border-color: #fca5a5;
+      background: #fef2f2;
+    }
+
+    .no-data {
+      text-align: center;
+      padding: 50px 24px;
+      color: var(--text-muted);
+    }
+
+    .no-data i {
+      font-size: 40px;
+      margin-bottom: 12px;
+      color: #cbd5e1;
+    }
+
+    /* MODALS SYSTEM */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.4);
+      backdrop-filter: blur(4px);
+      z-index: 20000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      width: 95%;
+      max-width: 550px;
+      box-shadow: var(--shadow-lg);
+      transform: scale(0.95);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .modal-overlay.active .modal-card {
+      transform: scale(1);
+    }
+
+    .modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .modal-close {
+      cursor: pointer;
+      color: var(--text-muted);
+      font-size: 16px;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .modal-close:hover {
+      color: var(--text);
+    }
+
+    .modal-body {
+      padding: 24px;
+    }
+
+    /* Lead Detail Items */
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .detail-item.full-width {
+      grid-column: span 2;
+    }
+
+    .detail-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .detail-value {
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 14px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      word-break: break-all;
+    }
+
+    .modal-footer {
+      padding: 16px 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      background: #f8fafc;
+    }
+
+    /* Delete confirm details */
+    .delete-warning {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .warning-icon {
+      font-size: 24px;
+      color: #ef4444;
+      background: #fef2f2;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .warning-text h4 {
+      margin: 0 0 6px 0;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .warning-text p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: auto;
+      padding: 24px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      background-color: #ffffff;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .dash-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .dash-actions {
+        width: 100%;
+      }
+      .dash-actions .btn {
+        flex: 1;
+        justify-content: center;
+      }
+      .filter-card {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .filter-group {
+        width: 100%;
+      }
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+      .detail-item.full-width {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PASSCODE GATE (Guard Screen) -->
+  <div class="gate-container" id="passcodeGate">
+    <div class="gate-card">
+      <div class="gate-icon">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+      <h2 class="gate-title">Erickson ICF Certification</h2>
+      <p class="gate-subtitle">Admissions Admin Portal</p>
+      
+      <form id="loginForm">
+        <div class="passcode-wrapper" style="margin-bottom: 16px;">
+          <input type="text" class="passcode-input" id="usernameInput" required placeholder="Enter admin username" autocomplete="username">
+        </div>
+        <div class="passcode-wrapper" style="margin-bottom: 24px;">
+          <input type="password" class="passcode-input" id="passwordInput" required placeholder="Enter admin password" autocomplete="current-password">
+          <button type="button" class="passcode-toggle" id="passwordToggle">
+            <i class="fa-regular fa-eye"></i>
+          </button>
+        </div>
+        <button type="submit" class="gate-btn">
+          <span>ENTER PORTAL</span>
+          <i class="fa-solid fa-arrow-right-to-bracket"></i>
+        </button>
+      </form>
+      <div class="gate-error" id="gateError"></div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD WRAPPER -->
+  <div class="dashboard-container" id="dashboardContainer">
+    <!-- Header panel -->
+    <header class="dash-header">
+      <div class="dash-title-block">
+        <h1>Admissions Leads Dashboard</h1>
+        <p>Real-time analytics and management for Erickson ICF Coach Training leads</p>
+      </div>
+      <div class="dash-actions">
+        <button class="btn btn-secondary" id="exportCsvBtn">
+          <i class="fa-solid fa-file-csv"></i>
+          <span>Export CSV</span>
+        </button>
+        <button class="btn btn-secondary" id="logoutBtn">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <span>Log Out</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- KPI Summary Grid -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-info">
+          <h3>Total Captured Leads</h3>
+          <p class="stat-value" id="statTotalLeads">0</p>
+        </div>
+        <div class="stat-icon blue">
+          <i class="fa-solid fa-users"></i>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-info">
+          <h3>Captured Leads Today</h3>
+          <p class="stat-value" id="statTodayLeads">0</p>
+        </div>
+        <div class="stat-icon orange">
+          <i class="fa-solid fa-calendar-day"></i>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-info">
+          <h3>Active Ad Pages</h3>
+          <p class="stat-value" id="statActivePages">0</p>
+        </div>
+        <div class="stat-icon green">
+          <i class="fa-solid fa-link"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters Panel -->
+    <section class="filter-card">
+      <div class="filter-group search-group">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" class="form-control" id="searchFilter" placeholder="Search by name, email, company, phone...">
+      </div>
+      <div class="filter-group">
+        <select class="form-control" id="pageFilter">
+          <option value="">All Ad Pages (Sources)</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <select class="form-control" id="dateFilter">
+          <option value="all">All Dates</option>
+          <option value="today">Today Only</option>
+          <option value="week">Last 7 Days</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Leads Table Card -->
+    <section class="table-card">
+      <div class="table-header">
+        <h2>Admissions Records</h2>
+        <span id="filteredCount">Showing 0 of 0 leads</span>
+      </div>
+      <div class="table-responsive">
+        <table id="leadsTable">
+          <thead>
+            <tr>
+              <th>Date & Time</th>
+              <th>Contact Name</th>
+              <th>Email Address</th>
+              <th>Mobile Number</th>
+              <th>Company / Org</th>
+              <th>Source Ad Page</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="leadsTableBody">
+            <tr>
+              <td colspan="7" class="no-data">
+                <i class="fa-solid fa-circle-notch fa-spin"></i>
+                <p>Loading real-time Firestore database...</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Admissions Manager System. Connected safely to Firebase/Firestore.</p>
+  </footer>
+
+  <!-- DETAIL VIEW MODAL -->
+  <div class="modal-overlay" id="detailModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Admissions Lead Details</h3>
+        <button class="modal-close" onclick="closeDetailModal()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="detail-grid">
+          <div class="detail-item">
+            <span class="detail-label">First Name</span>
+            <span class="detail-value" id="detailFirstName">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Last Name</span>
+            <span class="detail-value" id="detailLastName">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Email Address</span>
+            <span class="detail-value" id="detailEmail">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Mobile Number</span>
+            <span class="detail-value" id="detailPhone">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Company Name</span>
+            <span class="detail-value" id="detailCompany">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Timestamp Captured</span>
+            <span class="detail-value" id="detailDate">-</span>
+          </div>
+          <div class="detail-item full-width">
+            <span class="detail-label">Source Page Address (CORS Referrer)</span>
+            <span class="detail-value" id="detailSourcePage">-</span>
+          </div>
+          <div class="detail-item full-width">
+            <span class="detail-label">Message Details / Inquiry Source</span>
+            <span class="detail-value" id="detailMessage">-</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeDetailModal()">Close Details</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DELETE CONFIRMATION MODAL -->
+  <div class="modal-overlay" id="deleteModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Confirm Lead Deletion</h3>
+        <button class="modal-close" onclick="closeDeleteModal()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="delete-warning">
+          <div class="warning-icon">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+          </div>
+          <div class="warning-text">
+            <h4>Delete Admissions Lead permanently?</h4>
+            <p>This action is irreversible. The record will be permanently deleted from the database in Firestore. Are you sure you wish to proceed?</p>
+          </div>
+        </div>
+        <div class="detail-grid" style="margin-top: 10px;">
+          <div class="detail-item">
+            <span class="detail-label">Lead Name</span>
+            <span class="detail-value" id="deleteLeadName">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Company</span>
+            <span class="detail-value" id="deleteLeadCompany">-</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeDeleteModal()">Cancel</button>
+        <button class="btn btn-danger" id="confirmDeleteBtn">Delete Document</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- FIRESTORE REAL-TIME JAVASCRIPT LOGIC -->
+  <script type="module">
+    import { initializeApp } from "firebase/app";
+    import { getFirestore, collection, onSnapshot, query, orderBy, doc, deleteDoc } from "firebase/firestore";
+
+    // Firebase Config matches global-form.js
+    const firebaseConfig = {
+      apiKey: "AIzaSyC8nW0CAFgqLwvk481WNuMSfLUfqpT3Vps",
+      authDomain: "erickson-f7954.firebaseapp.com",
+      projectId: "erickson-f7954",
+      storageBucket: "erickson-f7954.firebasestorage.app",
+      messagingSenderId: "76152124770",
+      appId: "1:76152124770:web:21c39dfc6156adb33ae83b",
+      measurementId: "G-RWTHJ5ZFDM"
+    };
+
+    // Initialize Firebase & Firestore
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Global leads array
+    let rawLeads = [];
+    let currentDeleteId = null;
+
+    // DOM References - Gate
+    const passcodeGate = document.getElementById("passcodeGate");
+    const loginForm = document.getElementById("loginForm");
+    const usernameInput = document.getElementById("usernameInput");
+    const passwordInput = document.getElementById("passwordInput");
+    const passwordToggle = document.getElementById("passwordToggle");
+    const gateError = document.getElementById("gateError");
+    
+    // DOM References - Dashboard
+    const dashboardContainer = document.getElementById("dashboardContainer");
+    const statTotalLeads = document.getElementById("statTotalLeads");
+    const statTodayLeads = document.getElementById("statTodayLeads");
+    const statActivePages = document.getElementById("statActivePages");
+    const leadsTableBody = document.getElementById("leadsTableBody");
+    const searchFilter = document.getElementById("searchFilter");
+    const pageFilter = document.getElementById("pageFilter");
+    const dateFilter = document.getElementById("dateFilter");
+    const filteredCount = document.getElementById("filteredCount");
+    const exportCsvBtn = document.getElementById("exportCsvBtn");
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    // Modal References
+    const detailModal = document.getElementById("detailModal");
+    const deleteModal = document.getElementById("deleteModal");
+    const confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
+
+    // 1. Admin Authentication Gate
+    const CORRECT_USER = "wolv";
+    const CORRECT_PASS = "nimda";
+
+    // Toggle password visibility
+    passwordToggle.addEventListener("click", () => {
+      const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+      passwordInput.setAttribute("type", type);
+      const icon = passwordToggle.querySelector("i");
+      icon.classList.toggle("fa-eye");
+      icon.classList.toggle("fa-eye-slash");
+    });
+
+    // Check login state on load
+    if (localStorage.getItem("admin_authenticated") === "true") {
+      unlockDashboard();
+    }
+
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const user = usernameInput.value.trim();
+      const pass = passwordInput.value.trim();
+      
+      if (user === CORRECT_USER && pass === CORRECT_PASS) {
+        localStorage.setItem("admin_authenticated", "true");
+        unlockDashboard();
+        usernameInput.value = "";
+        passwordInput.value = "";
+      } else {
+        gateError.textContent = "Incorrect username or password. Please try again.";
+        usernameInput.style.borderColor = "#ef4444";
+        passwordInput.style.borderColor = "#ef4444";
+      }
+    });
+
+    function unlockDashboard() {
+      passcodeGate.classList.add("hidden");
+      dashboardContainer.classList.add("visible");
+      initRealtimeLeads();
+    }
+
+    logoutBtn.addEventListener("click", () => {
+      localStorage.removeItem("admin_authenticated");
+      dashboardContainer.classList.remove("visible");
+      passcodeGate.classList.remove("hidden");
+    });
+
+
+    // 2. Real-time Firestore Stream
+    function initRealtimeLeads() {
+      const q = query(collection(db, "leads"), orderBy("timestamp", "desc"));
+      
+      onSnapshot(q, (snapshot) => {
+        rawLeads = [];
+        snapshot.forEach((doc) => {
+          const data = doc.data();
+          rawLeads.push({
+            id: doc.id,
+            ...data
+          });
+        });
+        
+        updateStats();
+        populateSourcePagesFilter();
+        renderLeads();
+      }, (error) => {
+        console.error("Firestore onSnapshot error:", error);
+        leadsTableBody.innerHTML = `
+          <tr>
+            <td colspan="7" class="no-data" style="color: #ef4444;">
+              <i class="fa-solid fa-circle-exclamation"></i>
+              <p>Firestore Permission Error: ${error.message}</p>
+            </td>
+          </tr>
+        `;
+      });
+    }
+
+    // 3. Update Dashboard Stats
+    function updateStats() {
+      statTotalLeads.textContent = rawLeads.length;
+
+      // Leads today
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const leadsToday = rawLeads.filter(lead => {
+        if (!lead.timestamp) return false;
+        const leadDate = lead.timestamp.toDate ? lead.timestamp.toDate() : new Date(lead.timestamp);
+        return leadDate >= today;
+      }).length;
+      statTodayLeads.textContent = leadsToday;
+
+      // Unique landing pages (Sources)
+      const uniquePages = new Set();
+      rawLeads.forEach(lead => {
+        if (lead.sourcePage) {
+          try {
+            const url = new URL(lead.sourcePage);
+            uniquePages.add(url.pathname + url.search);
+          } catch {
+            uniquePages.add(lead.sourcePage);
+          }
+        }
+      });
+      statActivePages.textContent = uniquePages.size;
+    }
+
+    // Populate Page filter options dynamically
+    function populateSourcePagesFilter() {
+      const uniqueSources = new Set();
+      rawLeads.forEach(lead => {
+        if (lead.sourcePage) {
+          uniqueSources.add(lead.sourcePage);
+        }
+      });
+
+      const currentVal = pageFilter.value;
+      pageFilter.innerHTML = '<option value="">All Ad Pages (Sources)</option>';
+      
+      Array.from(uniqueSources).sort().forEach(src => {
+        const option = document.createElement("option");
+        option.value = src;
+        
+        let display = src;
+        try {
+          const url = new URL(src);
+          display = url.pathname === "/" ? "Home Page (" + url.hostname + ")" : url.pathname.replace("/", "");
+        } catch {}
+        
+        option.textContent = display;
+        pageFilter.appendChild(option);
+      });
+
+      if (uniqueSources.has(currentVal)) {
+        pageFilter.value = currentVal;
+      }
+    }
+
+
+    // 4. Render Leads Table with Filters
+    function renderLeads() {
+      const queryText = searchFilter.value.toLowerCase().trim();
+      const pageVal = pageFilter.value;
+      const dateVal = dateFilter.value;
+
+      const filteredLeads = rawLeads.filter(lead => {
+        // A. Search Query Match
+        let searchMatch = true;
+        if (queryText) {
+          const name = (lead.name || "").toLowerCase();
+          const email = (lead.email || "").toLowerCase();
+          const phone = (lead.phone || "").toLowerCase();
+          const company = (lead.company || "").toLowerCase();
+          searchMatch = name.includes(queryText) || 
+                        email.includes(queryText) || 
+                        phone.includes(queryText) || 
+                        company.includes(queryText);
+        }
+
+        // B. Source Page Match
+        let pageMatch = true;
+        if (pageVal) {
+          pageMatch = lead.sourcePage === pageVal;
+        }
+
+        // C. Date Filter Match
+        let dateMatch = true;
+        if (dateVal !== "all" && lead.timestamp) {
+          const leadDate = lead.timestamp.toDate ? lead.timestamp.toDate() : new Date(lead.timestamp);
+          const limitDate = new Date();
+          limitDate.setHours(0, 0, 0, 0);
+
+          if (dateVal === "today") {
+            dateMatch = leadDate >= limitDate;
+          } else if (dateVal === "week") {
+            limitDate.setDate(limitDate.getDate() - 7);
+            dateMatch = leadDate >= limitDate;
+          }
+        }
+
+        return searchMatch && pageMatch && dateMatch;
+      });
+
+      filteredCount.textContent = `Showing ${filteredLeads.length} of ${rawLeads.length} leads`;
+
+      if (filteredLeads.length === 0) {
+        leadsTableBody.innerHTML = `
+          <tr>
+            <td colspan="7" class="no-data">
+              <i class="fa-solid fa-folder-open"></i>
+              <p>No matching lead submissions found.</p>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      leadsTableBody.innerHTML = "";
+      filteredLeads.forEach(lead => {
+        const tr = document.createElement("tr");
+
+        let dateStr = "No Date";
+        if (lead.timestamp) {
+          const date = lead.timestamp.toDate ? lead.timestamp.toDate() : new Date(lead.timestamp);
+          dateStr = date.toLocaleString('en-IN', {
+            dateStyle: 'medium',
+            timeStyle: 'short'
+          });
+        }
+
+        let pageDisplay = lead.sourcePage || "-";
+        try {
+          const url = new URL(lead.sourcePage);
+          pageDisplay = url.pathname === "/" ? "home.html" : url.pathname.substring(url.pathname.lastIndexOf("/") + 1) || "home.html";
+        } catch {}
+
+        tr.innerHTML = `
+          <td class="date-text">${dateStr}</td>
+          <td class="td-lead-name">${escapeHTML(lead.name || "-")}</td>
+          <td><a href="mailto:${escapeHTML(lead.email)}" style="color: var(--primary); text-decoration: none;">${escapeHTML(lead.email || "-")}</a></td>
+          <td>${escapeHTML(lead.phone || "-")}</td>
+          <td>${escapeHTML(lead.company || "-")}</td>
+          <td><span class="page-badge" title="${escapeHTML(lead.sourcePage)}">${escapeHTML(pageDisplay)}</span></td>
+          <td>
+            <div class="table-actions">
+              <button class="btn-icon" title="View Details" onclick="viewLeadDetails('${lead.id}')">
+                <i class="fa-regular fa-eye"></i>
+              </button>
+              <button class="btn-icon delete-btn" title="Delete Lead" onclick="confirmDeleteLead('${lead.id}')">
+                <i class="fa-regular fa-trash-can"></i>
+              </button>
+            </div>
+          </td>
+        `;
+        leadsTableBody.appendChild(tr);
+      });
+    }
+
+    function escapeHTML(str) {
+      if (!str) return "";
+      return str.replace(/[&<>'"]/g, 
+        tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+      );
+    }
+
+    searchFilter.addEventListener("input", renderLeads);
+    pageFilter.addEventListener("change", renderLeads);
+    dateFilter.addEventListener("change", renderLeads);
+
+
+    // 5. Modal Operations
+    window.viewLeadDetails = function(leadId) {
+      const lead = rawLeads.find(l => l.id === leadId);
+      if (!lead) return;
+
+      const names = (lead.name || "").split(" ");
+      document.getElementById("detailFirstName").textContent = names[0] || "-";
+      document.getElementById("detailLastName").textContent = names.slice(1).join(" ") || "-";
+      
+      document.getElementById("detailEmail").textContent = lead.email || "-";
+      document.getElementById("detailPhone").textContent = lead.phone || "-";
+      document.getElementById("detailCompany").textContent = lead.company || "-";
+      document.getElementById("detailSourcePage").textContent = lead.sourcePage || "-";
+      document.getElementById("detailMessage").textContent = lead.message || "-";
+
+      let dateStr = "No Date";
+      if (lead.timestamp) {
+        const date = lead.timestamp.toDate ? lead.timestamp.toDate() : new Date(lead.timestamp);
+        dateStr = date.toLocaleString('en-IN', { dateStyle: 'long', timeStyle: 'medium' });
+      }
+      document.getElementById("detailDate").textContent = dateStr;
+
+      detailModal.classList.add("active");
+    };
+
+    window.closeDetailModal = function() {
+      detailModal.classList.remove("active");
+    };
+
+    window.confirmDeleteLead = function(leadId) {
+      const lead = rawLeads.find(l => l.id === leadId);
+      if (!lead) return;
+
+      currentDeleteId = leadId;
+      document.getElementById("deleteLeadName").textContent = lead.name || "-";
+      document.getElementById("deleteLeadCompany").textContent = lead.company || "-";
+      deleteModal.classList.add("active");
+    };
+
+    window.closeDeleteModal = function() {
+      deleteModal.classList.remove("active");
+      currentDeleteId = null;
+    };
+
+    confirmDeleteBtn.addEventListener("click", async () => {
+      if (!currentDeleteId) return;
+
+      confirmDeleteBtn.disabled = true;
+      confirmDeleteBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Deleting...';
+
+      try {
+        await deleteDoc(doc(db, "leads", currentDeleteId));
+        closeDeleteModal();
+      } catch (err) {
+        alert("Firestore delete failed: " + err.message);
+      } finally {
+        confirmDeleteBtn.disabled = false;
+        confirmDeleteBtn.innerHTML = 'Delete Document';
+      }
+    });
+
+
+    // 6. CSV Export Feature
+    exportCsvBtn.addEventListener("click", () => {
+      if (rawLeads.length === 0) {
+        alert("No lead documents available to export.");
+        return;
+      }
+
+      const headers = ["Timestamp", "Name", "Email", "Phone", "Company", "Source Page", "Message Details"];
+      
+      const rows = rawLeads.map(lead => {
+        let dateStr = "";
+        if (lead.timestamp) {
+          const date = lead.timestamp.toDate ? lead.timestamp.toDate() : new Date(lead.timestamp);
+          dateStr = date.toISOString();
+        }
+
+        return [
+          dateStr,
+          lead.name || "",
+          lead.email || "",
+          lead.phone || "",
+          lead.company || "",
+          lead.sourcePage || "",
+          lead.message || ""
+        ].map(val => `"${val.replace(/"/g, '""')}"`);
+      });
+
+      const csvContent = "data:text/csv;charset=utf-8," 
+        + [headers.join(","), ...rows.map(r => r.join(","))].join("\n");
+
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", `erickson_leads_${new Date().toISOString().slice(0, 10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === detailModal) closeDetailModal();
+      if (e.target === deleteModal) closeDeleteModal();
+    });
+
+  </script>
+
+</body>
+</html>

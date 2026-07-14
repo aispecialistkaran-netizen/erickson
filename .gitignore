@@ -34,3 +34,6 @@ Thumbs.db
 # Sensitive credentials
 .env
 
+# Node
+node_modules/
+package-lock.json

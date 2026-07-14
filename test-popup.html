@@ -6,6 +6,16 @@
   <title>Test Lead Capture Popup</title>
   <!-- Optional: Include Inter Font for beautiful typography matching global-form.js -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Firebase SDK Import Map -->
+  <script type="importmap">
+    {
+      "imports": {
+        "firebase/app": "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js",
+        "firebase/analytics": "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js",
+        "firebase/firestore": "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"
+      }
+    }
+  </script>
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -51,7 +61,7 @@
   </div>
 
   <!-- Load Global Lead Form Script -->
-  <script src="global-form.js"></script>
+  <script type="module" src="global-form.js"></script>
 
 </body>
 </html>
