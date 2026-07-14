@@ -457,4 +457,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // small delay to ensure DOM readiness
   setTimeout(initializeSessionSystem, 100);
+
+  // Auto-open Lead Modal after 5 seconds, once every day
+  function loadGlobalFormAndOpen() {
+    if (typeof window.openRegisterModal === 'function') {
+      window.openRegisterModal();
+      localStorage.setItem('xm_last_modal_shown', Date.now().toString());
+    } else {
+      const script = document.createElement('script');
+      script.src = '/global-form.js';
+      script.type = 'module';
+      script.onload = () => {
+        // Since global-form.js is a module, openRegisterModal will be bound to window
+        // after the module is executed. Let's wait a tiny bit or let onload handle it.
+        setTimeout(() => {
+          if (typeof window.openRegisterModal === 'function') {
+            window.openRegisterModal();
+            localStorage.setItem('xm_last_modal_shown', Date.now().toString());
+          }
+        }, 100);
+      };
+      document.body.appendChild(script);
+    }
+  }
+
+  const lastShown = localStorage.getItem('xm_last_modal_shown');
+  const oneDay = 24 * 60 * 60 * 1000;
+  if (!lastShown || (Date.now() - parseInt(lastShown, 10) > oneDay)) {
+    setTimeout(loadGlobalFormAndOpen, 5000);
+  }
 });
